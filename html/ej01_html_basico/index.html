@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - HTML Básico</title>
+</head>
+
+<body>
+    <header>
+        <h1>HTML Básico</h1>
+        <h2>Ejercicio 1</h2>
+    </header>
+
+    <nav>
+        <h3>Grupo de elementos de navegación</h3>
+        <ul>
+            <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+            <li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+            <li><a href="https://www.w3schools.com/" target="_blank">W3Schools</a></li>
+        </ul>
+
+        <hr>
+        <a href="pagina1.html">Enlace a otra página dentro de la misma pestaña</a>
+        <a href="pagina2.html" target="_blank">Enlace a otra página en una nueva pestaña</a>
+        <a href=#anclaje>Anca a otro punto de esta página</a>
+        <hr>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Preguntas:</h2>
+            <ol style="font-size: 20px;">
+                <li>
+                    <h4>Dar un par de ejemplos de uso de etiquetas meta.</h4>
+                    <ul>
+                        <li>Los meta tags con el atributo “http-equiv” pueden contener información equivalente a las
+                            indicaciones en el encabezado HTTP.
+                            <"meta http-equiv="cache-control" content="no-cache" />
+                        </li>
+                        <li>
+                            Los meta tags con el atributo "description" pueden describir brevemente el contenido de la
+                            página web.
+                            <"meta name="description" content="..." />
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Nombrar al menos 2 atributos aplicables a la etiqueta HTML.</h4>
+                    <ul>
+                        <li> "lang": permite especificar el idioma principal utilizado en el contenido de una página
+                            web. </li>
+                        <li> "id": permite identificar de manera única un elemento HTML.</li>
+                        <li> "class": permite asignar una o varias clases a un elemento.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>¿Como se relaciona un header http con la etiqueta head de HTML?</h4>
+                    <p>
+                        Los header http se relacion con las etiquetas meta, ya que estas identifican la metadata de
+                        una página web, y en este caso, el atributo
+                        "http-equiv" con valor "Content-type" y el atributo "content" con valor "utf-8" le indican al
+                        navegador que se trata de un encabezado HTTP llamado "Content-type" y que su contenido o valor
+                        es el código de lenguaje español "utf-8". La persona o proceso que codifica el HTML
+                        probablemente no pueda generar un encabezado HTTP y lo guarda de esta manera utilizando las
+                        etiquetas meta. El uso de etiquetas meta debe ser cuidadosamente
+                        considerado en función del público objetivo y el contenido de la página web.
+                    </p>
+                </li>
+                <li>
+                    <h4>¿Que es UTF8?</h4>
+                    <p>UTF-8 (UCS Transformation Format 8) es la Codificación de caracteres más común en la red. El
+                        número de bytes que representan un carácter pueden ser desde uno hasta cuatro. UTF-8 es
+                        retrocompatible con ASCII y puede representar cualquier carácter Unicode estandar.</p>
+                </li>
+                <li>
+                    <h4>¿Que atributo HTML sirve para aplicar estilo, a que etiqueta es aplicable?</h4>
+                    <p>El atributo style es un atributo que se utiliza en las etiquetas HTML para incrustar código CSS
+                        directamente en la propia etiqueta. Este tipo de CSS se denomina Estilos CSS en línea, y puede
+                        ser aplicado a cualquier etiqueta HTML.</p>
+                </li>
+                <li>
+                    <h4>¿Donde se indica que un enlace debe ubicar el documento en una nueva pestaña?</h4>
+                    <p>Para indicar que un enlace debe abrirse en una nueva pestaña, se utiliza el atributo "target" con
+                        el valor "_blank" a la etiqueta "a". De la siguiente manera: "a href="https://..."
+                        target="_blank".</p>
+                </li>
+                <li>
+                    <h4>Explicar cuando usarían etiquetas semánticas y con que propósito.</h4>
+                    <p>Las etiquetas semánticas de HTML5 se utilizan para proporcionar información adicional sobre el
+                        contenido de una página web, y su propósito es ayudar a los motores de búsqueda a comprender
+                        mejor el contenido de la página. Estas etiquetas marcan los límites de
+                        distintos tipos de contenido en una página web, y se les llama semánticas porque no tienen nada
+                        que ver con la estructura sintáctica ni con el estilo del documento, sino que se enfocan pura y
+                        exclusivamente en el contenido. Se recomienda utilizar etiquetas semánticas siempre que sea
+                        posible, ya que esto puede mejorar la accesibilidad y la legibilidad de la página.
+                        En conjunto, las etiquetas semánticas otorgan una estructura
+                        semántica a nuestro documento, lo que facilita su comprensión tanto para los motores de búsqueda
+                        como para los usuarios que lo visitan. Por ejemplo, para contener la lista de navegación o
+                        enlaces de nuestro documento, hay que utilizar la etiqueta única "nav".
+                    </p>
+                </li>
+                <li>
+                    <h4>¿Que atributos de estilo básicos aplicarían a una tabla? Explicar.</h4>
+                    <p>Los atributos de estilo básicos que aplicarían a una tabla son:</p>
+                    <ul>
+                        <li>border: para establecer el grosor del borde de la tabla.</li>
+                        <li>border-collapse: se utiliza para fusionar los bordes.</li>
+                        <li>width: define el ancho de la tabla en pixels o porcentaje.</li>
+                        <li>height: define la altura de la tabla en pixels o porcentaje.</li>
+                        <li>background-color: para establecer el color de fondo de la tabla.</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>¿Que diferencia existe entre la etiqueta body de un documento HTML y el body del protocolo HTTP?
+                    </h4>
+                    <p>El body de un documento HTML es la sección que contiene el contenido principal del documento,
+                        como texto, imágenes, enlaces, etc. El body del protocolo HTTP se refiere a la sección del
+                        mensaje HTTP que contiene los datos de la respuesta, enviados por el cliente al servidor
+                        o por el servidor al cliente. El cuerpo de un mensaje HTTP puede contener diferentes tipos de
+                        datos, y su formato puede variar según el tipo de datos que se estén enviando.</p>
+                </li>
+                <li>
+                    <h4>¿Que atributos marcan la agrupación de celdas de una tabla?. ¿A que etiquetas se aplican?</h4>
+                    <p>Los atributos que marcan la agrupación de celdas de una tabla son colspan y rowspan. colspan se
+                        utiliza para combinar varias celdas en una sola columna, mientras que rowspan se utiliza para
+                        combinar varias celdas en una sola fila. Estos atributos se aplican a las etiquetas "td" y
+                        "th".
+                    </p>
+                </li>
+            </ol>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Sección de imagenes</h2>
+            <p>En esta sección mostraremos imagenes identificativas de nuestro sitio.</p>
+            <p>La siguiente imagen esta insertada en tamaño natural.</p>
+            <img src="robot.jpeg" />
+            <p>La misma imagen, de un Robot, con distintos atributos width:</p>
+            <p>Todas las siguientes imagenes se verán deformadas por haber definido doble parametro de estilo (ancho y
+                alto)</p>
+            <img src="robot.jpeg" width="100px" height="467px" />
+            <img src="robot.jpeg" width="200px" height="467px" />
+            <img src="robot.jpeg" width="300px" height="467px" />
+            <img src="robot.jpeg" width="400px" height="467px" />
+        </section>
+
+        <br><br><br>
+        <hr>
+
+        <section>
+            <h2>Sección del video</h2>
+            <video src="robot_video.mp4" controls></video>
+        </section>
+
+        <section id="anclaje">
+            <h2>Anclajes</h2>
+            <p>Punto de anclado</p>
+        </section>
+    </main>
+
+    <footer>
+        <h2>Datos del alumno</h2>
+        <p>Ramiro Tanquias Cornejo - 15-27742</p>
+        <a href="mailto:rtanquiascornejo@gmail.com">rtanquiascornejo@gmail.com</a>
+    </footer>
+</body>
+
+</html>
