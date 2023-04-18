@@ -1,12 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 3 - Formularios</title>
 </head>
+
 <body>
-    
+    <main>
+        <h1>Ejercicio 3 - Formularios</h1> <hr/>
+        <section>
+            <h2>Formulario para entradas sin validación</h2>
+            <form action="./respuesta.html" target="_blank" method="get">
+                <ul>
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="usuario">Usuario:</label> <br />
+                        <input
+                            type="text"
+                            id="usuario"
+                            name="usuario"
+                            value="" 
+                            autofocus 
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="contraseña">Contraseña:</label> <br />
+                        <input
+                            type="password"
+                            id="contraseña"
+                            name="contraseña"
+                            value="" 
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="oculto">Oculto:</label> <br />
+                        <input
+                            type="hidden"
+                            id="oculto"
+                            name="oculto"
+                            value="Valor oculto"
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="deshabilitado">Campo deshabilitado:</label> <br />
+                        <input
+                            id="deshabilitado"
+                            name="deshabilitado"
+                            value="Valor deshabilitado"
+                            disabled
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="lectura">Campo de solo lectura:</label> <br />
+                        <input
+                            id="lectura"
+                            name="lectura"
+                            value="Valor de solo lectura"
+                            readonly
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="siHtml">¿Sabe HTML?</label> <br />
+                        <input 
+                            type="checkbox" 
+                            id="siHtml" 
+                            name="siHtml" 
+                            value="si" 
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="siCss">¿Sabe CSS?</label> <br />
+                        <input 
+                            type="checkbox" 
+                            id="siCss" 
+                            name="siCss" 
+                            value="si" 
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="siJs">¿Sabe JavaScript?</label> <br />
+                        <input 
+                            type="checkbox" 
+                            id="siJs" 
+                            name="siJs" 
+                            value="si" 
+                        />
+                    </li>
+                    
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="sexo">Sexo:</label> <br />
+                        Masculino
+                        <input 
+                            type="radio" 
+                            id="masculino" 
+                            name="sexo" 
+                            value="m" 
+                            checked="checked" 
+                        >
+                        Femenino
+                        <input 
+                            type="radio" 
+                            id="femenino" 
+                            name="sexo" 
+                            value="f" 
+                        >
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="estudios">Estudios cursados</label> <br />
+                        <select name="estudios" id="estudios">
+                            <option value="pri" selected="selected" >Primarios</option>
+                            <option value="sec">Secundarios</option>
+                            <option value="ter">Terciarios</option>
+                            <option value="uni">Universitarios</option>
+                            <option value="pos">Postgrado</option>
+                        </select>
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="fecha">Fecha y hora<label> <br />
+                        <input 
+                            type="date" 
+                            id="fecha" 
+                            name="fecha" 
+                        />
+                        <input 
+                            type="time" 
+                            id="hora" 
+                            name="hora" 
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="color">Color<label> <br />
+                        <input 
+                            type="color" 
+                            id="color" 
+                            name="color"
+                            value="#ff0000" 
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <button type="submit">Enviar formulario sin validación</button>
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <button type="reset">Reset a valores predeterminados</button>
+                    </li>
+                </ul>
+            </form>
+        </section>
+
+        <hr/>
+
+        <section>
+            <h2>Formulario para entradas sin validación</h2>
+            <form action="./respuesta.html" target="_blank" method="get">
+                <ul>
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="comentario">Comentario (validación por requerido):</label> <br />
+                        <input
+                            id="comentario"
+                            name="comentario"
+                            required
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="email">Email con doble validación (x@x y required):</label> <br />
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="user@mail.com"
+                            title="Ingresé un correo electronico" 
+                            required
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="entero">Número entero limitado (validación por tipo numerico y cotas):</label> <br />
+                        <input 
+                            type="number"
+                            id="entero"
+                            name="entero"
+                            min="1" 
+                            max="5"
+                            title="Ingresé un número entero" 
+                            required 
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="real">Número decimal:</label> <br />
+                        <input 
+                            type="number"
+                            id="real"
+                            name="real"
+                            min="0" 
+                            max="9"
+                            step="0.1"
+                            title="Ingresé un número decimal" 
+                            required
+                        />
+                    </li>
+
+                    
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="url">URL (validación por requerido, escribir http://):</label> <br />
+                        <input 
+                            type="url"
+                            id="url"
+                            name="url"
+                            placeholder="http://..."
+                            required
+                        />
+                    </li>
+                    
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="mascara">Pattern de validación (Tres letras y dos números que sean 1 o 2 solamente):</label> <br />
+                        <input 
+                            id="mascara"
+                            name="mascara"
+                            pattern="[a-z]{3}[1-2]{2}"
+                            title="Tres letras y dos números que sean 1 o 2 solamente"
+                            required
+                        />
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <label style="font-weight: bold;" for="mascara2">Pattern de validación (Número telefónico):</label> <br />
+                        <input
+                            type="tel" 
+                            id="mascara2"
+                            name="mascara2"
+                            pattern="^\(\+54\)\s11\s\d{8}$"
+                            title="(+54) 11 XXXXXXXX"
+                            placeholder="(+54) 11 44556789"
+                            required
+                        />
+                    </li>
+                    
+                    <li style="margin-top: 10px;">
+                        <button type="submit">Enviar formulario sin validación</button>
+                    </li>
+
+                    <li style="margin-top: 10px;">
+                        <button type="reset">Reset a valores predeterminados</button>
+                    </li>
+                </ul>
+            </form>
+        </section>
+    </main>
+
 </body>
+
 </html>
