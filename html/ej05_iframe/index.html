@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%;">
 
 <head>
     <meta charset="UTF-8">
@@ -8,10 +8,42 @@
     <title>Ejercicio 5 - Iframe</title>
 </head>
 
-<body>
-    <main>
-        <h1>Ejercicio 5 - Iframe</h1> <hr/>
-    </main>
+<body style="height: 100%;">
+    <h1>Ejercicio 5 - Iframe</h1>
+    <hr />
+
+    <div>
+        <h2>ÍNDICE</h2>
+        <ol>
+            <li><a href="../ej01_html_basico/" target="fcontenido">HTML Básico</a></li>
+            <li><a href="../ej02_tablas/" target="fcontenido">Tablas</a></li>
+            <li><a href="../ej03_formularios/" target="fcontenido">Formularios</a></li>
+            <li><a href="./htmlParte2.pdf" target="fcontenido">Archivo.pdf</a></li>
+            <li><a href="./robot_video.mp4" target="fcontenido">Archivo de video local</a></li>
+            <li><a href="https://www.youtube.com/embed/xv9fSIG5i8A" target="fcontenido">Video de YouTube</a></li>
+        </ol>
+    </div>
+
+    <br />
+
+    <h2>Iframe para presentar los ejercicios anteriores, un PDF y un video streaming de YouTube.</h2>
+    <iframe src="../ej01_html_basico/" name="fcontenido" style="height: 50%; width: 80%; border: solid;"></iframe>
+
+    <br />
+
+    <div>
+        <h2>Iframe recomendado por YouTube para insertar un video y visualizarlo en toda su dimensión.</h2>
+        <iframe 
+            width="932px" 
+            height="524px" 
+            src="https://www.youtube.com/embed/xv9fSIG5i8A" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+        >
+        </iframe>
+
+    </div>
 </body>
 
 </html>
