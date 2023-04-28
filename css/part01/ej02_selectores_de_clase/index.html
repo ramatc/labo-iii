@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Selectores de clase</title>
+    <style>
+        p {
+            margin-bottom: 16px;
+        }
+
+        .claseResaltado {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .claseAcotacion {
+            color: blue;
+            font-style: italic;
+            border: 1px solid blue;
+            padding: 16px;
+            margin: 50px 0px;
+        }
+
+        .claseAyuda {
+            color: orange;
+            font-style: italic;
+            border: 1px solid yellow;
+            width: 200px;
+        }
+
+        .claseContenidoComun {
+
+        }
+
+        #idUnico {
+            color: red;
+            border: 1px solid red;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>A partir de esta página no usaremos más el atributo style en ninguna etiqueta.</h1>
+    <h1>Todo el estilo será definido dentro de una etiqueta style como "clase", anidada en la etiqueta head del documento.</h1>   
+    <h1>Todos los párrafos tienen un default como estilo que incluyen un margin-bottom para separarlos más entre ellos.</h1>
+
+    <p>Este párrafo contiene un grupo de palabras delimitados por una etiqueta "span". El comienzo es aqui:<span class="claseResaltado">grupo de palabras destacadas con el estilo claseResaltado</span>blablabla blablabla blablabla</p>
+
+    <p class="claseAcotacion">asas</p>
+
+    <h1 class="claseResaltado"></h1>
+
+    <p class="claseAyuda">asadss</p>
+</body>
+
+</html>
