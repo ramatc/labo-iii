@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.contenedorExterno {
+    width: 50%;
+    margin: auto;
+    background-color: lightblue;
+    padding: 30px;
+    border: 1px solid black;
+}
+
+.contenedorInterno {
+    background-image: url(robot.jpeg );
+    background-size: cover; 
+    color: white;
+    border: 1px solid red;
+    height:200px;
+    width:40%;
+    overflow:auto;
+    margin: 0 auto;
+    padding: 15px;
+    border-top-left-radius: 9px;
+}
