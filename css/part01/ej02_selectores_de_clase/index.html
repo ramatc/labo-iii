@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 2 - Selectores de clase</title>
     <style>
+        body {
+            font-size: 24px;
+        }
+
         p {
             margin-bottom: 16px;
         }
@@ -22,39 +26,62 @@
             border: 1px solid blue;
             padding: 16px;
             margin: 50px 0px;
+            text-align: center;
         }
 
         .claseAyuda {
             color: orange;
             font-style: italic;
             border: 1px solid yellow;
-            width: 200px;
+            max-width: 35%;
+            text-align: center;
         }
 
-        .claseContenidoComun {
-
-        }
+        .claseContenidoComun {}
 
         #idUnico {
             color: red;
             border: 1px solid red;
-            width: 200px;
+            width: 450px;
+            text-align: center;
+        }
+
+        .imagenAl50 {
+            width: 50%;
         }
     </style>
 </head>
 
 <body>
     <h1>A partir de esta página no usaremos más el atributo style en ninguna etiqueta.</h1>
-    <h1>Todo el estilo será definido dentro de una etiqueta style como "clase", anidada en la etiqueta head del documento.</h1>   
-    <h1>Todos los párrafos tienen un default como estilo que incluyen un margin-bottom para separarlos más entre ellos.</h1>
+    <h1>Todo el estilo será definido dentro de una etiqueta style como "clase", anidada en la etiqueta head del
+        documento.</h1>
+    <h1>Todos los párrafos tienen un default como estilo que incluyen un margin-bottom para separarlos más entre ellos.
+    </h1>
 
-    <p>Este párrafo contiene un grupo de palabras delimitados por una etiqueta "span". El comienzo es aqui:<span class="claseResaltado">grupo de palabras destacadas con el estilo claseResaltado</span>blablabla blablabla blablabla</p>
+    <p>Este párrafo contiene un grupo de palabras delimitados por una etiqueta "span". El comienzo es aqui:<span
+            class="claseResaltado">grupo de palabras destacadas con el estilo claseResaltado</span>blablabla blablabla
+        blablabla</p>
 
-    <p class="claseAcotacion">asas</p>
+    <p class="claseAcotacion">Este párrafo toma el estilo definido en la etiqueta style en el head del documento como
+        class="claseAcotacion" Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione vel aperiam corporis
+        exercitationem esse ipsam commodi, laboriosam deleniti</p>
 
-    <h1 class="claseResaltado"></h1>
+    <p class="claseResaltado">Este párrafo toma el estilo definido en la etiqueta style en el head del documento como
+        class="claseResaltado"</p>
 
-    <p class="claseAyuda">asadss</p>
+    <p class="claseAyuda">Este párrafo toma el estilo definido en la etiqueta style en el head del documento como
+        class="claseAyuda"</p>
+
+    <p class="claseContenidoComun">Este párrafo toma el estilo definido en la etiqueta style en el head del documento
+        como class="claseContenidoComun"</p>
+
+    <p id="idUnico">Párrafo formateado por un estilo particular definido en el style del documento para un párrafo
+        especifico id="idUnico". No se trata de un selector de clase sino de un selector de elemento "#"</p>
+
+    <h1>Todas las imagenes con class="imagenAl50" en esta página se encuentran limitadas al 50% del ancho del contenedor
+        mas allá de su tamaño real en pixeles:</h1>
+    <img src="robot.jpeg" class="imagenAl50" alt="Robot" />
 </body>
 
 </html>

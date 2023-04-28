@@ -1,0 +1,18 @@
+h1 {
+    background-color: tomato;
+    color: white;
+    display: block;
+    text-align: center;
+}
+
+body {
+    font-size: 32px;
+}
+
+p {
+    text-align: left;
+    color: blue;
+    font-style: italic;
+    border-top: 1px solid blue;
+    border-bottom: 1px solid blue;
+}
