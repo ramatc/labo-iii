@@ -3,3 +3,57 @@
     padding: 0;
     margin: 0;
 }
+
+main  {
+    background-color: aquamarine;
+    margin: 0 auto;
+    max-width: 1600px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div {
+    width: 200px;
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 16px 8px 2px rgba(0,0,0,0.3);
+    float: left;
+    margin: 10px;
+    font-size: 12px;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 1%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.div1 {
+    background: linear-gradient(orange, white, pink);
+    padding-top: 10px;
+}
+
+.div2 {
+    background: radial-gradient(orange, white, pink);
+    text-align: center;
+}
+
+.div3 {
+    background: radial-gradient(orange, white, pink);
+}
+
+.div4 {
+    background: radial-gradient(orange, white, pink);
+}
+
+.div5 {
+    background: linear-gradient(orange, white, pink);
+    padding-top: 10px;
+}
+
+.div6 {
+    background: radial-gradient(orange, white, pink);
+    text-align: center;
+}
