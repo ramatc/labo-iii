@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 14 - Menu</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            background-color: #2e517b;
+            position: relative;
+            float: left;
+            cursor: pointer;
+            padding: 20px;
+            list-style: none;
+            color: white;
+            width: 150px;
+            transition: 0.6s ease;
+        }
+
+        nav ul li:hover, 
+        nav ul ul li:hover {
+            background-color: #2e517b90;
+        }
+
+        nav ul li a {
+            display: block;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+
+        nav ul ul li {
+            float: none;
+            width: 200px;
+            background-color: #213957;
+        }
+
+        nav ul ul a {
+            padding: 10px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    HTML
+                    <ul>
+                        <li><a href="../../../html/ej02_tablas/">Tablas</a></li>
+                        <li><a href="../../../html/ej03_formularios/">Formularios</a></li>
+                        <li><a href="../../../html/ej05_iframe/">Iframes</a></li>
+                    </ul>
+                </li>
+                <li>
+                    CSS
+                    <ul>
+                        <li><a href="../../part01/ej01_style_en_head/">Style en head</a></li>
+                        <li><a href="../../part01/ej02_selectores_de_clase/">Selector de clase</a></li>
+                        <li><a href="../../part01/ej03_style_en_file/">Style en file</a></li>
+                    </ul>
+                </li>
+                <li>JAVASCRIPT</li>
+                <li>ESPECIALES</li>
+                <li>PHP</li>
+            </ul>
+        </nav>
+    </header>
+</body>
+
+</html>
