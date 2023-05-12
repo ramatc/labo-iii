@@ -6,7 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 9 - Divs internos en columnas</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        main {
+            background-color: aquamarine;
+            max-width: 1600px;
+            width: 90%;
+            margin-left: 7%;
+            float: left;
+            display: block;
+        }
+
+        div {
+            float: left;
+            margin: 12.5px;
+            background-color: lightgreen;
+            width: 250px;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            margin: 1%;
+        }
+
+        @media (max-width: 600px) {
+            div {
+                background-color: rebeccapurple;
+            }
+
+            main {
+                background-color: lightpink;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -24,7 +63,8 @@
                 officia, adipisci quisquam quia rerum natus doloremque eaque. Excepturi delectus ratione debitis tempora
                 autem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab sint nemo ullam ipsa dolore?
                 Dolorum, suscipit exercitationem. Ullam deleniti, fugiat suscipit, accusantium ut adipisci nostrum
-                explicabo voluptatum, aspernatur sit quae?</p>
+                explicabo voluptatum, aspernatur sit quae? Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Lorem ipsum dolor, sit amet consectetur adipisicing eliteLorem ipsum dolor</p>
             <img src="robot.jpeg" alt="Robot">
         </div>
 
@@ -80,11 +120,11 @@
         </div>
 
         <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quisquam id sit vero eaque reprehenderit
-                corporis expedita, assumenda culpa rem, aspernatur accusantium! Assumenda, laborum. Repellat dicta enim
-                vitae dolorem fugiat? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae minima laudantium
-                quis, debitis earum modi tempore! Dolorum nihil nulla perferendis similique, architecto ex nisi, ullam
-                est nesciunt praesentium id vero!</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod rem quia est nesciunt fuga ex repellendus
+                ipsa cupiditate? Earum recusandae nihil impedit tenetur officia itaque sapiente, temporibus est
+                necessitatibus! Repellat? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam quae error ab
+                temporibus nesciunt nisi dolore est explicabo commodi esse, tempore earum voluptates consequatur. Veniam
+                libero quo odit soluta ea!</p>
         </div>
     </main>
 </body>

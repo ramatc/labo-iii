@@ -1,13 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 11 - Divs internos relativos</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        body {
+            background-color: blue;
+        }
+
+        main {
+            margin-left: 10%;
+            margin-right: 20%;
+            background-color: blanchedalmond;
+        }
+
+        .clase1 {
+            background-color: green;
+            margin-left: 0%;
+            margin-top: 10px;
+            width: 70%;
+            height: 80px;
+            padding: 5px;
+        }
+
+        .clase2 {
+            background-color: yellow;
+            margin-left: 20%;
+            margin-top: 20px;
+            width: 45%;
+            padding: 5px;
+        }
+
+        .clase3 {
+            background-color: orange;
+            margin-left: 30%;
+            margin-top: 10px;
+            width: 50%;
+            height: 100px;
+            overflow: auto;
+            padding: 5px;
+        }
+
+        .modal {
+            background-color: purple;
+            color: white;
+            position: fixed;
+            Width: 50%;
+            height: 450px;
+            top: 20%;
+            left: 25%;
+            opacity: 0.3;
+            padding: 20px;
+            overflow-y: auto;
+            visibility: visible;
+            z-index: 10;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <main>
+        <h1>Contenedores relativos.</h1>
+
+        <div class="clase1">
+            <h2>Contenedor relativo clase1</h2>
+        </div>
+        <div class="clase1">
+            <h2>Contenedor relativo clase1</h2>
+        </div>
+
+        <div class="clase2">
+            <h2>Contenedor relativo clase2</h2>
+        </div>
+
+        <div class="modal">
+            <h2>Contendor modal</h2>
+            <h2>Contendor modal</h2>
+            <h2>Contendor modal</h2>
+            <h2>Contendor modal</h2>
+            <h2>Contendor modal</h2>
+            <h2>Contendor modal</h2>
+            <h2>Contendor modal</h2>
+            <h2>Contendor modal</h2>
+            <h2>Contendor modal</h2>
+            <h2>Contendor modal</h2>
+        </div>
+
+        <div class="clase2">
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+        </div>
+
+        <div class="clase3">
+            <h2>Contenedor relativo clase3</h2>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+            <p>texto texto texto texto</p>
+        </div>
+
+        <div class="clase2">
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+            <h2>Contenedor relativo clase2</h2>
+        </div>
+
+        <div class="clase2">
+            <img src="robot1.webp" alt="Robot">
+        </div>
+    </main>
 </body>
+
 </html>

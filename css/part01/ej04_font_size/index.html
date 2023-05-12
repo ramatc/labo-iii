@@ -6,7 +6,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 4 - Font size</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            font-size: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 6em;
+        }
+
+        p {
+            font-size: 3em;
+        }
+
+        h1,
+        p {
+            background-color: lightgray;
+        }
+
+        @media(min-width: 800px) {
+            p {
+                font-size: 2em;
+            }
+
+            h1 {
+                font-size: 4em;
+            }
+
+            h1,
+            p {
+                background-color: lightskyblue;
+            }
+
+        }
+
+        @media(min-width: 1080px) {
+            p {
+                font-size: 1em;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h1,
+            p {
+                background-color: lightcoral;
+            }
+        }
+    </style>
 </head>
 
 <body>

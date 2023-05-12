@@ -1,13 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 12 - Divs internos absolutos</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        main {
+            background-color: cadetblue;
+            margin: 0 auto;
+            width: 90%;
+            position: relative;
+            height: 90vw;
+            display: block;
+        }
+
+        .clase1 {
+            background-color: greenyellow;
+            position: absolute;
+            width: 200px;
+            top: 10%;
+            left: 10%;
+            width: 30%;
+            height: 30%;
+            font-size: 1vw;
+        }
+
+        .clase2 {
+            background-color: lime;
+            position: absolute;
+            width: 200px;
+            overflow: auto;
+            top: 50%;
+            left: 60%;
+            width: 30%;
+            height: 30%;
+            font-size: 1vw;
+            transform: rotateZ(10deg);
+        }
+
+        .clase3 {
+            background-color: beige;
+            opacity: 0.5;
+            position: absolute;
+            width: 300px;
+            top: 30%;
+            left: 30%;
+            width: 45%;
+            height: 30%;
+            font-size: 1vw;
+            z-index: 999;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <main>
+        <h1>Estructura de posicionamiento absoluto pero adaptable al medio de presentación.</h1>
+        <div class="clase1">
+            <h2>Contenedor interno 1.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolorem quaerat eligendi iusto.
+                Architecto, culpa optio.
+            </p>
+        </div>
+        <div class="clase2">
+            <h2>Contenedor interno 2.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolorem quaerat eligendi iusto.
+                Architecto, culpa optio.
+            </p>
+            <img src="robot1.webp" alt="Robot">
+            <img src="robot1.webp" alt="Robot">
+            <img src="robot1.webp" alt="Robot">
+        </div>
+        <div class="clase3">
+            <h2>Contenedor interno 3.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis dolorem quaerat eligendi iusto.
+                Architecto, culpa optio.
+            </p>
+        </div>
+    </main>
 </body>
+
 </html>

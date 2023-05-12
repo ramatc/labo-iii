@@ -1,16 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 7 - Divs en pila</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        main {
+            background-color: aquamarine;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        div {
+            width: 50%;
+            height: 250px;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+        }
+
+        .div1 {
+            box-shadow: 16px 8px 2px rgba(0, 0, 0, 0.3);
+            background-color: lightblue;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .div2 {
+            background: radial-gradient(orange, white, pink);
+            text-align: center;
+        }
+
+        .div3 {
+            background: linear-gradient(45deg, orange, white, pink);
+        }
+
+        .div3 img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .div4 {
+            box-shadow: 16px 8px 2px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(45deg, pink, white, orange);
+            padding: 12px;
+        }
+
+        .div5 {
+            background: linear-gradient(45deg, orange, white, pink);
+        }
+
+        @media(min-width: 600px) {
+            .div1 {
+                background-color: lightyellow;
+            }
+
+            .div3 img {
+                width: 200px;
+                height: 100%;
+                display: flex;
+                margin: 0 auto;
+                border-radius: 0px;
+            }
+        }
+
+        @media(min-width: 1080px) {
+            .div1 {
+                background-color: gray;
+            }
+
+            .div3 img {
+                width: 300px;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <main>
         <h1>Cajas en pila</h1>
-        
+
         <div class="div1">
             <p>Fondo gris para tamaño de viewport mayores a 1080</p>
             <p>Fondo amarillo claro para tamaño de viewport entre 600 y 1080</p>
@@ -20,18 +97,19 @@
         <div class="div2">
             Gradiente radial como fondo
         </div>
-        
+
         <div class="div3">
             <img src="robot.jpeg" alt="Robot">
         </div>
-        
+
         <div class="div4">
             <p>Nodo de texto en div4 alineado a la izquierda y con padding</p>
         </div>
-        
+
         <div class="div5">
             <p>Nodo de texto en div5 alineado a la izquierda y sin padding</p>
         </div>
     </main>
 </body>
+
 </html>
