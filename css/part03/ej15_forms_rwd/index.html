@@ -1,13 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 15 - Forms RWD</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        header {
+            background-color: darkcyan;
+            height: 10%;
+            text-align: center;
+            padding: 30px;
+        }
+
+        main {
+            height: 80%;
+            width: 100%;
+            display: flex;
+        }
+
+        footer {
+            background-color: darkcyan;
+            padding: 30px;
+            height: 10%;
+        }
+
+        form {
+            width: 100%;
+            overflow: auto;
+            background-color: #aaaaaa;
+        }
+
+        label {
+            display: block;
+        }
+
+        button {
+            width: 40%;
+            padding: 20px;
+            height: 80%;
+            background-color: #aaaaaa;
+            cursor: pointer;
+        }
+
+        .entrada {
+            height: auto;
+            float: left;
+            border: 1px solid gray;
+            padding: 1%;
+            background-color: #aaaaaa;
+            width: 100%;
+            height: 150px;
+        }
+
+        .barraControl {
+            clear: both;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: gray;
+            gap: 12px;
+            padding: 20px;
+        }
+
+        @media (min-width:700px) {
+            .entrada {
+                width: 25%;
+            }
+
+            button {
+                width: 20%;
+            }
+        }
+
+        @media (min-width:900px) {
+            .entrada {
+                width: 20%;
+            }
+
+            button {
+                width: 10%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <h1>
+            Formulario
+        </h1>
+    </header>
+    <main>
+        <form action="">
+            <div class="entrada">
+                <label for="ape">1 Apellido:</label>
+                <input type="text" name="ape" id="ape">
+            </div>
+
+            <div class="entrada">
+                <label for="nombre">2 Nombres:</label>
+                <input type="text" name="nombre" id="nombre">
+            </div>
+
+            <div class="entrada">
+                <label for="password">3 Contraseña:</label>
+                <input type="password" name="password" id="password">
+            </div>
+
+            <div class="entrada">
+                <label for="deshabilitado">4 Campo deshabilitado:</label>
+                <input id="deshabilitado" name="deshabilitado" value="Valor deshabilitado" title="Valor deshabilitado"
+                    disabled />
+            </div>
+
+            <div class="entrada">
+                <label for="fecha">5 Fecha y hora:<label>
+                        <input type="date" id="fecha" name="fecha" />
+                        <input type="time" id="hora" name="hora" />
+            </div>
+
+            <div class="entrada">
+                <label for="dni">6 DNI:</label>
+                <input type="number" name="dni" id="dni">
+            </div>
+
+            <div class="entrada">
+                <label style="font-weight: bold;" for="actividades">7 Actividades extracurriculares:</label>
+                Musica:<input type="checkbox" id="actividades" name="actividades" value="musica" />
+                Pintura:<input type="checkbox" id="actividades" name="actividades" value="pintura" />
+            </div>
+
+            <div class="entrada">
+                <label for="sexo">8 Sexo:</label>
+                Masculino
+                <input type="radio" id="masculino" name="sexo" value="m" checked="checked">
+                Femenino
+                <input type="radio" id="femenino" name="sexo" value="f">
+            </div>
+
+            <div class="entrada">
+                <h2>9 Vacío</h2>
+            </div>
+
+            <div class="entrada">
+                <label for="estudios">10 Estudios cursados:</label>
+                <select name="estudios" id="estudios">
+                    <option value="pri" selected="selected">Primarios</option>
+                    <option value="sec">Secundarios</option>
+                    <option value="ter">Terciarios</option>
+                    <option value="uni">Universitarios</option>
+                    <option value="pos">Postgrado</option>
+                </select>
+            </div>
+
+            <div class="entrada">
+                <label for="area">11 Area de desempeño:</label>
+                <select name="area" id="area">
+                    <option value="admi" selected="selected">Administración</option>
+                    <option value="cont">Contabilidad</option>
+                </select>
+            </div>
+
+            <div class="entrada">
+                <label for="turno">12 Turno:</label>
+                <select name="turno" id="turno">
+                    <option value="man" selected="selected">Mañana</option>
+                    <option value="noch">Noche</option>
+                </select>
+            </div>
+
+            <div class="entrada">
+                <label for="conduce">13 Conduce:</label>
+                Si
+                <input type="radio" id="si" name="conduce" value="si" checked="checked">
+                No
+                <input type="radio" id="no" name="conduce" value="no">
+            </div>
+
+            <div class="barraControl">
+                <button type="submit">
+                    Enviar
+                </button>
+
+                <button type="reset">
+                    Reset
+                </button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <h2>Pie de formulario</h2>
+    </footer>
 </body>
+
 </html>
