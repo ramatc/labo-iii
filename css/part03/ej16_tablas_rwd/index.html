@@ -12,11 +12,297 @@
             padding: 0;
             margin: 0;
         }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        header {
+            background-color: darkcyan;
+            height: 10%;
+            padding: 30px;
+        }
+
+        main {
+            height: 80%;
+            overflow: auto;
+        }
+
+        footer {
+            background-color: darkcyan;
+            padding: 30px;
+            height: 10%;
+        }
+
+        header, footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            background-color: cornflowerblue;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: orangered;
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid orange;
+        }
+
+        td {
+            text-align: center;
+            padding: 20px;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: rgba(0, 0, 0, .2);
+        }
+
+        [campo-dato="id"] {
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            [campo-dato="web"] {
+                display: none;
+            }
+
+            [campo-dato="mail"] {
+                width: 85vw;
+            }
+        }
+
+        @media (max-width: 900px) {
+            [campo-dato="twitter"] {
+                display: none;
+            }
+
+            [campo-dato="web"] {
+                width: 60vw;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            [campo-dato="skype"] {
+                display: none;
+            }
+
+            [campo-dato="twitter"] {
+                width: 35vw;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <header>
+        <h2>Rwd (Responsive Web Desing) TABLE:</h2>
+    </header>
 
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th campo-dato="id">Id</th>
+                    <th campo-dato="nick">Nick</th>
+                    <th campo-dato="mail">Mail</th>
+                    <th campo-dato="web">Web</th>
+                    <th campo-dato="twitter">Twitter</th>
+                    <th campo-dato="skype">Skype</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td campo-dato="id">1</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">2</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">3</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">4</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">5</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">6</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">7</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">8</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">9</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">10</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">11</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">12</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">13</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">14</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">15</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">16</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+
+                <tr>
+                    <td campo-dato="id">17</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+                <tr>
+                    <td campo-dato="id">18</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+                <tr>
+                    <td campo-dato="id">19</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+                <tr>
+                    <td campo-dato="id">20</td>
+                    <td campo-dato="nick">Fu</td>
+                    <td campo-dato="mail">fulano@gmail.com</td>
+                    <td campo-dato="web">http://fulano.ar</td>
+                    <td campo-dato="twitter">@fulano</td>
+                    <td campo-dato="skype">fulano@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    
+    <footer>
+        <h2>Footer</h2>
+    </footer>
 </body>
 
 </html>

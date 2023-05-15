@@ -48,6 +48,10 @@
             display: block;
         }
 
+        .input {
+            width: 150px;
+        }
+
         button {
             width: 40%;
             padding: 20px;
@@ -108,23 +112,23 @@
         <form action="">
             <div class="entrada">
                 <label for="ape">1 Apellido:</label>
-                <input type="text" name="ape" id="ape">
+                <input type="text" name="ape" id="ape" class="input">
             </div>
 
             <div class="entrada">
                 <label for="nombre">2 Nombres:</label>
-                <input type="text" name="nombre" id="nombre">
+                <input type="text" name="nombre" id="nombre" class="input">
             </div>
 
             <div class="entrada">
                 <label for="password">3 Contraseña:</label>
-                <input type="password" name="password" id="password">
+                <input type="password" name="password" id="password" class="input">
             </div>
 
             <div class="entrada">
                 <label for="deshabilitado">4 Campo deshabilitado:</label>
                 <input id="deshabilitado" name="deshabilitado" value="Valor deshabilitado" title="Valor deshabilitado"
-                    disabled />
+                    disabled class="input"/>
             </div>
 
             <div class="entrada">
@@ -135,7 +139,7 @@
 
             <div class="entrada">
                 <label for="dni">6 DNI:</label>
-                <input type="number" name="dni" id="dni">
+                <input type="number" name="dni" id="dni" class="input">
             </div>
 
             <div class="entrada">

@@ -12,11 +12,184 @@
             padding: 0;
             margin: 0;
         }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            width: 90%;
+            margin: auto;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        header,
+        footer {
+            background-color: tomato;
+            height: 10%;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        nav ul li {
+            background-color: #7b602e;
+            cursor: pointer;
+            padding: 20px;
+            list-style: none;
+            color: white;
+            width: 25%;
+            text-align: center;
+            transition: 0.6s ease;
+        }
+
+        nav ul li:hover {
+            background-color: #7b602ea5;
+        }
+
+        nav ul li a {
+            display: block;
+            text-decoration: none;
+            color: white;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        main {
+            height: 80%;
+            width: 100%;
+            display: flex;
+        }
+
+        .contenedor {
+            width: 100%;
+            overflow: auto;
+            background-color: gainsboro;
+            padding: 20px;
+        }
+
+        .columna {
+            width: 250px;
+            padding: 10px;
+            font-size: 1.6em;
+            float: left;
+        }
+
+        @media (max-width: 600px) {
+            ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                width: 100%;
+                padding: 9px;
+            }
+
+            .columna {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <header>
+        <h1>Titulo principal de página 1</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../../../html/">HTML</a></li>
+            <li><a href="../../">CSS</a></li>
+            <li><a href="../../../js/">JAVASCRIPT</a></li>
+            <li><a href="../../../php/">PHP</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="contenedor">
+            <div class="columna">
+                1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur eveniet eaque quam quaerat
+                tempora assumenda itaque corrupti, dolorum laudantium nostrum iste est maxime esse dolorem facere
+                voluptates veniam! Dolore, nesciunt.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur eveniet eaque quam quaerat
+                tempora assumenda itaque corrupti, dolorum laudantium nostrum iste est maxime esse dolorem facere
+                voluptates veniam! Dolore, nesciunt.
+            </div>
+            <div class="columna">
+                2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur eveniet eaque quam quaerat
+                tempora assumenda itaque corrupti, dolorum laudantium nostrum iste est maxime esse dolorem facere
+                voluptates veniam! Dolore, nesciunt.
+            </div>
+            <div class="columna">
+                3 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni illo molestias laudantium corrupti
+                odio voluptate! Facilis natus illo mollitia inventore blanditiis optio qui quis et aperiam aliquid
+                voluptate, molestias neque. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, ab?
+                Recusandae qui facilis dolor nesciunt debitis accusantium odio. Voluptates, pariatur iure distinctio
+                obcaecati voluptatem sunt repudiandae minima laudantium provident
+                <img style="transform: rotateZ(30deg);" src="./castillo.jpg" alt="castillo">
+            </div>
+            <div class="columna">
+                4 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni illo molestias laudantium corrupti
+                odio voluptate! Facilis natus illo mollitia inventore blanditiis optio qui quis et aperiam aliquid
+                voluptate, molestias neque. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, ab?
+                Recusandae qui facilis dolor nesciunt debitis accusantium odio. Voluptates, pariatur iure distinctio
+                obcaecati voluptatem sunt repudiandae minima laudantium provident ipsam! Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Neque consequuntur reprehenderit rem voluptatem deleniti alias dolor hic,
+                accusantium dolorum beatae recusandae sunt. Modi, similique quaerat! Laboriosam placeat repellendus
+                eligendi dolor.
+            </div>
+            <div class="columna">
+                5 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni illo molestias laudantium corrupti
+                odio voluptate! Facilis natus illo mollitia inventore blanditiis optio qui quis et aperiam aliquid
+                voluptate, molestias neque.
+            </div>
+            <div class="columna">
+                6 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni illo molestias laudantium corrupti
+                odio voluptate! Facilis natus illo mollitia inventore blanditiis optio qui quis et aperiam aliquid
+                voluptate, molestias neque. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consectetur
+                inventore recusandae
+                <img style="transform: translateX(-50%);" src="./globo.webp" alt="globo">
+            </div>
+            <div class="columna">
+                7 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni illo molestias laudantium corrupti
+                odio voluptate! Facilis natus illo mollitia inventore blanditiis optio qui quis et aperiam aliquid
+                voluptate, molestias neque. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, ab?
+                Recusandae qui facilis dolor nesciunt debitis accusantium odio. Voluptates, pariatur iure distinctio
+                obcaecati voluptatem sunt repudiandae minima laudantium provident ipsam! Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Neque consequuntur reprehenderit rem voluptatem deleniti alias dolor hic,
+                dolor.
+            </div>
+            <div class="columna">
+                8 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni illo molestias laudantium corrupti
+                odio voluptate! Facilis natus illo mollitia inventore blanditiis optio qui quis et aperiam aliquid
+                voluptate, molestias neque. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, ab?
+                Recusandae qui facilis dolor nesciunt debitis accusantium odio. Voluptates, pariatur iure distinctio
+                obcaecati voluptatem sunt repudiandae minima laudantium provident ipsam! Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Neque consequuntur reprehenderit rem voluptatem deleniti alias dolor hic,
+                dolor.
+            </div>
+            <div class="columna">
+                9 Odio voluptate! Facilis natus illo mollitia inventore blanditiis optio qui quis et aperiam aliquid
+                voluptate, molestias neque. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore, ab?
+                Recusandae qui facilis dolor nesciunt debitis accusantium odio. Voluptates, pariatur iure distinctio
+                obcaecati voluptatem sunt repudiandae minima laudantium provident ipsam!
+            </div>
+        </div>
+    </main>
 
+    <footer>
+        <h2>Pie de página</h2>
+    </footer>
 </body>
 
 </html>
