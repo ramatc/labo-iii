@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6 - Operaciones sobre inputs</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Introducir un valor en el cuadro de texto y luego pulsar el botón para ejecutar el procedimiento correspondiente</h1>
+    <input type="text" id="inpt">
+    <button id="btnMostrar">Muestra valor</button>
+    <button id="btnSuma">Suma 1</button>
+    <button id="btnCuadrado">x**2</button>
+    <button id="btnMultiplica">Multiplica * 2</button>
+    <button id="btnPotencia">2**x</button>
+
+    <script>
+        var entrada1 = document.getElementById('inpt');
+
+        document.getElementById("btnMostrar").onclick = () => {
+            alert(entrada1.value);
+        }
+
+        document.getElementById("btnSuma").onclick = () => {
+            document.getElementById('inpt').value = parseInt(entrada1.value) + 1;
+        }
+
+        document.getElementById("btnCuadrado").onclick = () => {
+            document.getElementById('inpt').value = parseInt(entrada1.value) * parseInt(entrada1.value);
+        }
+
+        document.getElementById("btnMultiplica").onclick = () => {
+            document.getElementById('inpt').value = parseInt(entrada1.value) * 2;
+        }
+
+        document.getElementById("btnPotencia").onclick = () => {
+            document.getElementById('inpt').value = 2** parseInt(entrada1.value);
+        }
+    </script>
+</body>
+</html>

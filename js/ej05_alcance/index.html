@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 - Alcance</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        button {
+            cursor: pointer;
+            width: 33%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">Inicialización incorrecta</button>
+    <button id="btn2">Inicialización correcta</button>
+    <button id="btn3">Muestra variable global</button>
+
+    <script>
+        var variableGlobal;
+
+        document.getElementById("btn1").onclick = () => {
+            var variableLocal = prompt("Ingrese un valor para la variable local:");
+            alert("El valor de la variable local ingresada es: " + variableLocal);
+            alert("El tipo de la variable local ingresada es: " + typeof variableLocal);
+        }
+        
+        document.getElementById("btn2").onclick = () => {
+            variableGlobal = prompt("Ingrese un valor para la variable global:");
+            alert("El valor de la variable global ingresada es: " + variableGlobal);
+            alert("El tipo de la variable global ingresada es: " + typeof variableGlobal);
+        }
+
+        document.getElementById("btn3").onclick = () => {
+            if(variableGlobal === undefined) {
+                alert("La variable global no ha sido asignada");
+            } else {
+                alert("El valor de la variable global ingresada es: " + variableGlobal);
+                alert("El tipo de la variable global ingresada es: " + typeof variableGlobal);
+            }
+        }
+        </script>
+</body>
+
+</html>

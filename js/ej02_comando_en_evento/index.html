@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - Comando en evento</title>
+    <style>
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Comando en evento:</h1>
+    <button onclick="alert('Comando ejecutado en evento onClick de este botón. El código lo escribimos como valor del atributo onClick del objeto button')">
+        Click aquí para ejecutar un alert()
+    </button>
+    <button onclick="document.write('<h1>Hola. Esta escritura pisa lo anterior.</h1>')">
+        Click aquí para ejecutar un document.write()
+    </button>
+</body>
+</html>
