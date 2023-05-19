@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 - Funciones compartidas</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #95ced7;
+        }
+
+        .calculadora {
+            width: 30%;
+            margin: auto;
+            background-color: gray;
+            padding: 30px;
+            margin-top: 200px;
+            border-radius: 6px;
+        }
+
+        input {
+            width: 100%;
+            background-color: #252525;
+            color: white;
+            padding: 20px;
+            border: none;
+            outline: none;
+            border-top-right-radius: 12px;
+            border-top-left-radius: 12px;
+            text-align: right;
+            font-size: 22px;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .numeros {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .numeros button {
+            width: 33%;
+            height: 75px;
+            font-size: 28px;
+            border: 1px solid gainsboro;
+            transition: background-color 0.5s ease;
+        }
+
+        .numeros button:hover {
+            background-color: gainsboro;
+        }
+
+        .botones {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .botones button {
+            background-color: #d0cfcf;
+            width: 50%;
+            height: 50px;
+            font-size: 20px;
+            transition: background-color 0.5s ease;
+            color: #252525;
+        }
+
+        .botones button:hover {
+            background-color: rgb(152, 151, 151);
+        }
+
+        @media (max-width: 1100px) {
+            .calculadora {
+                width: 50%;
+            }
+
+            .botones button {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .calculadora {
+                width: 80%;
+            }
+
+            .botones button {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculadora">
+        <input type="text" id="resultado" autofocus>
+        <div class="numeros">
+            <button id="btn1">1</button>
+            <button id="btn2">2</button>
+            <button id="btn3">3</button>
+            <button id="btn4">4</button>
+            <button id="btn5">5</button>
+            <button id="btn6">6</button>
+            <button id="btn7">7</button>
+            <button id="btn8">8</button>
+            <button id="btn9">9</button>
+        </div>
+        <div class="botones">
+            <button id="sumar">+</button>
+            <button id="mostrar">Muestra acumulador</button>
+            <button id="borrarAcum">Borra acumulador</button>
+            <button id="borrarDisplay">Borra display</button>
+        </div>
+    </div>
+    <script>
+        var acumulador = 0;
+
+        document.getElementById("btn1").onclick = () => {
+            document.getElementById("resultado").value += 1;
+        }
+
+        document.getElementById("btn2").onclick = () => {
+            document.getElementById("resultado").value += 2;
+        }
+
+        document.getElementById("btn3").onclick = () => {
+            document.getElementById("resultado").value += 3;
+        }
+
+        document.getElementById("btn4").onclick = () => {
+            document.getElementById("resultado").value += 4;
+        }
+
+        document.getElementById("btn5").onclick = () => {
+            document.getElementById("resultado").value += 5;
+        }
+
+        document.getElementById("btn6").onclick = () => {
+            document.getElementById("resultado").value += 6;
+        }
+
+        document.getElementById("btn7").onclick = () => {
+            document.getElementById("resultado").value += 7;
+        }
+
+        document.getElementById("btn8").onclick = () => {
+            document.getElementById("resultado").value += 8;
+        }
+
+        document.getElementById("btn9").onclick = () => {
+            document.getElementById("resultado").value += 9;
+        }
+
+        document.getElementById("sumar").onclick = () => {
+            if (document.getElementById("resultado").value !== "") {
+                acumulador += parseInt(document.getElementById("resultado").value);
+                document.getElementById("resultado").value = "";
+            } else {
+                alert("Debe ingresar un número");
+            }
+        }
+
+        document.getElementById("mostrar").onclick = () => {
+            alert(acumulador);
+        }
+
+        document.getElementById("borrarAcum").onclick = () => {
+            acumulador = 0;
+        }
+
+        document.getElementById("borrarDisplay").onclick = () => {
+            document.getElementById("resultado").value = "";
+        }
+    </script>
+</body>
+
+</html>
