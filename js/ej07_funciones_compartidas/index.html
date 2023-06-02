@@ -125,40 +125,44 @@
     <script>
         var acumulador = 0;
 
+        function sumar(num) {
+            document.getElementById("resultado").value += num;
+        }
+
         document.getElementById("btn1").onclick = () => {
-            document.getElementById("resultado").value += 1;
+            sumar(1);
         }
 
         document.getElementById("btn2").onclick = () => {
-            document.getElementById("resultado").value += 2;
+            sumar(2);
         }
 
         document.getElementById("btn3").onclick = () => {
-            document.getElementById("resultado").value += 3;
+            sumar(3);
         }
 
         document.getElementById("btn4").onclick = () => {
-            document.getElementById("resultado").value += 4;
+            sumar(4);
         }
 
         document.getElementById("btn5").onclick = () => {
-            document.getElementById("resultado").value += 5;
+            sumar(5);
         }
 
         document.getElementById("btn6").onclick = () => {
-            document.getElementById("resultado").value += 6;
+            sumar(6);
         }
 
         document.getElementById("btn7").onclick = () => {
-            document.getElementById("resultado").value += 7;
+            sumar(7);
         }
 
         document.getElementById("btn8").onclick = () => {
-            document.getElementById("resultado").value += 8;
+            sumar(8);
         }
 
         document.getElementById("btn9").onclick = () => {
-            document.getElementById("resultado").value += 9;
+            sumar(9);
         }
 
         document.getElementById("sumar").onclick = () => {

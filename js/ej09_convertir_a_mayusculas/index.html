@@ -35,7 +35,7 @@
             margin-bottom: 15px;
         }
 
-        
+
         @media (max-width: 600px) {
             input {
                 width: 100%;
@@ -54,12 +54,16 @@
     </main>
 
     <script>
+        function convertirMayusculas(cadena) {
+            document.getElementById(cadena).value = document.getElementById(cadena).value.toUpperCase();
+        }
+
         document.getElementById("nombre").onchange = () => {
-            document.getElementById("nombre").value = document.getElementById("nombre").value.toUpperCase();
+            convertirMayusculas("nombre");
         }
 
         document.getElementById("ape").onchange = () => {
-            document.getElementById("ape").value = document.getElementById("ape").value.toUpperCase();
+            convertirMayusculas("ape");
         }
     </script>
 </body>
