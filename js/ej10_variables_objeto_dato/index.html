@@ -1,12 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 10 - Variables objeto dato</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: 80%;
+            padding: 14px;
+        }
+
+        .agregar {
+            background-color: blanchedalmond;
+            margin: 50px auto;
+        }
+
+        .control {
+            background-color: blueviolet;
+            margin: auto;
+            color: white;
+        }
+
+        label {
+            display: block;
+        }
+
+        button {
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        table td {
+            width: 150px;
+            border: 2px solid gray;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="agregar container">
+        <h2>Adicionar persona</h2>
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required placeholder="Pepe">
+        </div>
+
+        <div>
+            <label for="ape">Apellido:</label>
+            <input type="text" id="ape" required placeholder="Argento">
+        </div>
+
+        <div>
+            <label for="nacim">Fecha de nacimiento:</label>
+            <input type="text" id="nacim" required placeholder="31/12/1958">
+        </div>
+
+        <button id="crear">Crear persona</button>
+    </div>
+
+    <div class="control container">
+        <h2>Control</h2>
+        <button id="lista">Lista personas</button>
+        <button id="ocultar">Ocultar presentación</button>
+    </div>
+
+    <div id="presentacion"></div>
+
+    <script>
+        var objPersonas = {}
+        var nom = document.getElementById("nombre");
+        var ape = document.getElementById("ape");
+        var nacim = document.getElementById("nacim");
+        var objetoPersona = { nombre: "Lionel Andrés", apellido: "Messi", fechaNac: "24/06/1987" };
+        var arregloPersonas = [objetoPersona];
+
+        arregloPersonas.push({ nombre: "Ramiro", apellido: "Tanquias Cornejo", fechaNac: "06/05/2002" });
+        objPersonas = { personas: arregloPersonas };
+
+        function mostrarLista() {
+            var texto = "<h1>Presentación</h1>";
+            texto += "<table style='border-collapse: collapse; border: solid;'>";
+            objPersonas.personas.forEach(function (item, index) {
+                texto += "<tr><td>" + item.nombre + "</td><td>" + item.apellido + "</td><td>" + item.fechaNac + "</td></tr>";
+            })
+            texto += "</table>";
+            texto += "<h4>Longitud del arreglo de objetos: " + arregloPersonas.length + "</h4>";
+            document.getElementById("presentacion").innerHTML = texto;
+        }
+
+        mostrarLista();
+
+        document.getElementById("crear").onclick = () => {
+            if (nom.checkValidity() == false) {
+                alert("Ingresé un nombre válido");
+                return
+            } else if (ape.checkValidity() == false) {
+                alert("Ingresé un apellido válido");
+                return
+            } else if (nacim.checkValidity() == false) {
+                alert("Ingresé una fecha de nacimiento válida");
+                return
+            } else {
+                arregloPersonas.push({ nombre: nom.value, apellido: ape.value, fechaNac: nacim.value });
+                mostrarLista();
+                document.getElementById("nombre").value = "";
+                document.getElementById("ape").value = "";
+                document.getElementById("nacim").value = "";
+                document.getElementById("presentacion").style.display = "block"
+            }
+        }
+
+        document.getElementById("lista").onclick = () => {
+            document.getElementById("presentacion").style.display = "block"
+        }
+
+        document.getElementById("ocultar").onclick = () => {
+            document.getElementById("presentacion").style.display = "none";
+        }
+    </script>
 </body>
+
 </html>

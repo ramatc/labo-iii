@@ -1,12 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 11 - Form confirmation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        main {
+            width: 80%;
+            margin: auto;
+            background-color: lightblue;
+            height: 250px;
+            padding: 12px;
+        }
+
+        label {
+            display: block;
+        }
+
+        .btns {
+            padding-top: 100px;
+            text-align: center;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <main>
+        <h2>Confirmación de envio y reset</h2>
+        <form id="myForm">
+            <div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Pepe">
+            </div>
+
+            <div>
+                <label for="ape">Apellido:</label>
+                <input type="text" id="ape" name="apellido" required placeholder="Argento">
+            </div>
+
+            <div class="btns">
+                <button id="btnReset">Blanquear</button>
+                <button id="btnEnviar" type="button">Enviar</button>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById("myForm").method = "get";
+        document.getElementById("myForm").target = "_blank";
+        document.getElementById("myForm").action = "./respuesta.html";
+
+        document.getElementById("btnEnviar").onclick = () => {
+            var confirma = confirm("Estas seguro de enviar?");
+
+            if (confirma) {
+                document.getElementById("myForm").submit();
+            }
+        }
+
+        document.getElementById("btnReset").onclick = () => {
+            document.getElementById("myForm").reset();
+        }
+    </script>
 </body>
+
 </html>

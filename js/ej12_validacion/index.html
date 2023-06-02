@@ -5,8 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 12 - Validación</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            width: 150px;
+            padding: 7px;
+        }
+
+        main {
+            width: 80%;
+            margin: auto;
+            background-color: lightblue;
+            height: 250px;
+            padding: 12px;
+        }
+
+        label {
+            display: block;
+        }
+
+        .btns {
+            padding-top: 80px;
+            text-align: center;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 12px;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Ejercicio Validación de un input</h1>
+    <main>
+        <form id="myForm">
+            <div>
+                <label for="dia">Ingresé el día del mes:</label>
+                <input type="number" id="dia" name="dia" required min="1" max="31">
+            </div>
+
+            <div>
+                <label for="mes">Ingresé el mes:</label>
+                <input type="number" id="mes" name="mes" required min="1" max="12">
+            </div>
+
+            <div class="btns">
+                <button id="btnEnviar" type="submit">Enviar</button>
+                <button id="btnReset" type="reset">Reset</button>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        document.getElementById("myForm").method = "get";
+
+        document.getElementById("dia").onkeyup = function() {
+            if (document.getElementById("dia").value < 1 || document.getElementById("dia").value > 31) {
+                alert ("Debe ser un valor entre 1 y 31");
+                document.getElementById("dia").value = "";
+            }
+        } 
+
+        document.getElementById("mes").onkeyup = function() {
+            if (document.getElementById("mes").value < 1 || document.getElementById("mes").value > 12) {
+                alert ("Debe ser un valor entre 1 y 12");
+                document.getElementById("mes").value = "";
+            }
+        } 
+    </script>
 </body>
 </html>
