@@ -1,12 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 16 - Creación de objetos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #fafafa;
+        }
+
+        .botones {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        button {
+            cursor: pointer;
+            font-size: 18px;
+            background-color: #252525;
+            color: #fafafa;
+            border: 2px solid lightpink;
+            padding: 7px;
+            border-radius: 6px;
+            transition: all 0.7s ease-in-out;
+        }
+
+        button:hover {
+            background-color: lightpink;
+            color: black;
+            border: 2px solid white;
+        }
+
+        .container {
+            width: 60%;
+            height: 350px;
+            background-color: violet;
+            margin: 30px auto 0;
+            padding: 12px;
+            overflow: auto;
+        }
+
+        .elemento {
+            background-color: crimson;
+            color: white;
+            border: 1px solid black;
+            width: 220px;
+            height: 50px;
+            display: flex;
+            padding: 4px;
+            place-items: center;
+            font-weight: bold;
+            margin: 12px 0px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <main>
+        <div class="botones">
+            <button id="btnCrear">Crear</button>
+            <button id="btnLimpiar">Limpiar</button>
+            <button id="btnInfo">Info</button>
+        </div>
+
+        <div class="container">
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+            <div class="elemento">Elemento creado: 0</div>
+        </div>
+    </main>
 </body>
+
 </html>

@@ -63,10 +63,16 @@
         document.getElementById("myForm").action = "./respuesta.html";
 
         document.getElementById("btnEnviar").onclick = () => {
-            var confirma = confirm("Estas seguro de enviar?");
+            if (document.getElementById("nombre").checkValidity() == false) {
+                alert("Ingresé un nombre válido");
+            } else if (document.getElementById("ape").checkValidity() == false) {
+                alert("Ingresé un apellido válido");
+            } else {
+                var confirma = confirm("Estas seguro de enviar?");
 
-            if (confirma) {
-                document.getElementById("myForm").submit();
+                if (confirma) {
+                    document.getElementById("myForm").submit();
+                }
             }
         }
 
