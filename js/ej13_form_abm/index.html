@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +14,7 @@
         }
 
         p {
-            opacity: 0.9;
+            opacity: 0.6;
             font-size: 18px;
         }
 
@@ -21,12 +22,16 @@
             display: block;
         }
 
+        input {
+            padding: 3px;
+        }
+
         .main-container {
             background-color: #72eed4;
             width: 50%;
             height: 250px;
             margin: auto;
-            opacity: 0.8;
+            opacity: 0.9;
             position: fixed;
             top: 20%;
             left: 25%;
@@ -35,7 +40,7 @@
             z-index: 10;
         }
 
-        .form {
+        form {
             background-color: lightseagreen;
             width: 50%;
             padding: 10px;
@@ -51,32 +56,34 @@
         }
     </style>
 </head>
+
 <body>
     <main>
         <div class="main-container">
-            <div class="form">
+            <form id="myForm">
                 <h1>FORMULARIO ABM</h1>
                 <div>
                     <label for="ape">Apellido:</label>
-                    <input type="text" name="ape" id="ape">
+                    <input type="text" name="ape" id="ape" required placeholder="Perez">
                 </div>
 
                 <div>
                     <label for="nombre">Nombres:</label>
-                    <input type="text" name="nombre" id="nombre">
+                    <input type="text" name="nombre" id="nombre" required placeholder="Juan">
                 </div>
 
                 <div>
                     <label for="saldo">Saldo:</label>
-                    <input type="number" name="saldo" id="saldo">
+                    <input type="number" name="saldo" id="saldo" required title="El valor debe ser mayor o igual a 100"
+                        placeholder="Saldo >= 100" min="100">
                 </div>
-            </div>
+            </form>
 
             <div class="botones">
-                <button disabled>Blanquear</button>
-                <button disabled>Alta</button>
-                <button disabled>Modificación</button>
-                <button disabled>Baja</button>
+                <button id="btnBlanquear" disabled=true>Blanquear</button>
+                <button id="btnAlta" disabled>Alta</button>
+                <button id="btnModif" disabled>Modificación</button>
+                <button id="btnBaja" disabled>Baja</button>
             </div>
         </div>
         <p>
@@ -261,5 +268,55 @@
             atque eos!
         </p>
     </main>
+    
+    <script>
+        var apellido = document.getElementById("ape");
+        var nombre = document.getElementById("nombre");
+        var saldo = document.getElementById("saldo");
+
+        var btnBlanquear = document.getElementById("btnBlanquear");
+        var btnAlta = document.getElementById("btnAlta");
+        var btnModif = document.getElementById("btnModif");
+        var btnBaja = document.getElementById("btnBaja");
+
+        function habiltarBtn() {
+            if (apellido.value != "" || nombre.value != "" || saldo.value != "") {
+                btnBlanquear.disabled = false;
+            } else {
+                btnBlanquear.disabled = true;
+            }
+
+            if (apellido.checkValidity() == true && nombre.checkValidity() == true && saldo.checkValidity() == true) {
+                btnAlta.disabled = false;
+                btnModif.disabled = false;
+                btnBaja.disabled = false;
+            } else {
+                btnAlta.disabled = true;
+                btnModif.disabled = true;
+                btnBaja.disabled = true;
+            }
+        }
+
+        apellido.onkeyup = function () {
+            habiltarBtn();
+        }
+
+        nombre.onkeyup = function () {
+            habiltarBtn();
+        }
+
+        saldo.onkeyup = function () {
+            habiltarBtn();
+        }
+
+        btnBlanquear.onclick = () => {
+            document.getElementById("myForm").reset();
+            btnBlanquear.disabled = true;
+            btnAlta.disabled = true;
+            btnModif.disabled = true;
+            btnBaja.disabled = true;
+        }
+    </script>
 </body>
+
 </html>

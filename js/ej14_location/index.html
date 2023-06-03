@@ -38,12 +38,24 @@
 
 <body>
     <div>
-        <button>YouTube</button>
-        <button>Source Force</button>
-        <button>Gmail</button>
+        <button id="btn1">LinkedIn</button>
+        <button id="btn2">GitHub</button>
+        <button id="btn3">YouTube</button>
     </div>
 
-    <script></script>
+    <script>
+        document.getElementById("btn1").onclick = () => {
+            location.href = "https://www.linkedin.com/"
+        };
+
+        document.getElementById("btn2").onclick = () => {
+            location.href = "https://github.com/"
+        };
+
+        document.getElementById("btn3").onclick = () => {
+            location.href = "https://www.youtube.com/"
+        };
+    </script>
 </body>
 
 </html>

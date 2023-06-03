@@ -14,19 +14,27 @@
         }
 
         .container {
-            width: 80%;
+            width: 70%;
             padding: 14px;
         }
 
         .agregar {
             background-color: blanchedalmond;
-            margin: 50px auto;
+            margin: auto;
         }
 
         .control {
-            background-color: blueviolet;
+            background-color: rosybrown;
             margin: auto;
             color: white;
+        }
+
+        #presentacion {
+            background-color: tan;
+            width: 70%;
+            margin: auto;
+            padding: 14px;
+            display: none;
         }
 
         label {
@@ -39,8 +47,32 @@
         }
 
         table td {
-            width: 150px;
-            border: 2px solid gray;
+            width: 120px;
+            padding: 2px;
+            border: 1px solid black;
+        }
+
+        button {
+            background-color: #252525;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 5px;
+            border: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #252525ab;
+            color: white;
+        }
+
+        input {
+            border: none;
+            padding: 3px;
+            margin: 5px 0px;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -60,7 +92,7 @@
 
         <div>
             <label for="nacim">Fecha de nacimiento:</label>
-            <input type="text" id="nacim" required placeholder="31/12/1958">
+            <input type="text" id="nacim" required placeholder="DD/MM/AAAA" pattern="^(0[1-9]|[1-2][0-9]|3[0-1])/(0[1-9]|1[0-2])/([0-9]{4})$">
         </div>
 
         <button id="crear">Crear persona</button>
@@ -101,20 +133,17 @@
         document.getElementById("crear").onclick = () => {
             if (nom.checkValidity() == false) {
                 alert("Ingresé un nombre válido");
-                return
             } else if (ape.checkValidity() == false) {
                 alert("Ingresé un apellido válido");
-                return
             } else if (nacim.checkValidity() == false) {
                 alert("Ingresé una fecha de nacimiento válida");
-                return
             } else {
                 arregloPersonas.push({ nombre: nom.value, apellido: ape.value, fechaNac: nacim.value });
                 mostrarLista();
                 document.getElementById("nombre").value = "";
                 document.getElementById("ape").value = "";
                 document.getElementById("nacim").value = "";
-                document.getElementById("presentacion").style.display = "block"
+                document.getElementById("presentacion").style.display = "block";
             }
         }
 

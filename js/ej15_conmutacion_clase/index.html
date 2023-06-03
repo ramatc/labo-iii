@@ -14,19 +14,53 @@
         }
 
         .botones {
-            margin-top: 150px;
-        }
-
-        h2 {
-            padding-left: 20px;
+            margin-top: 14px;
+            text-align: center;
+            width: 300px;
         }
 
         ul {
             padding: 0 20px;
+            width: 300px;
+            height: 350px;
+            font-size: 18px;
+            margin-left: 5px;
         }
 
         button {
             cursor: pointer;
+        }
+
+        .claseLista1 {
+            background-color: red;
+            color: white;
+            border: 3px solid black;
+            padding-top: 20px;
+            list-style: armenian;
+        }
+
+        .claseLista2 {
+            background-color: blue;
+            color: white;
+            font-size: 22px;
+            border-radius: 7px;
+            border: 2px solid tomato;
+            list-style: circle;
+        }
+
+        .claseLista3 {
+            background-color: yellow;
+            border-radius: 40px;
+            padding: 15px;
+            color: peru;
+            list-style-type: lower-alpha;
+        }
+
+        .claseLista4 {
+            background-color: greenyellow;
+            font-size: 13px;
+            border: 6px solid violet;
+            list-style: decimal;
         }
     </style>
 </head>
@@ -35,8 +69,8 @@
     <main>
         <h1>Ejemplo de cambios de estilo dinamicamente</h1>
         <div>
-            <h2>Lista con estilo</h2>
-            <ul>
+            <ul id="lista">
+                <h2>Lista con estilo</h2>
                 <li>Texto1</li>
                 <li>Texto2</li>
                 <li>Texto3</li>
@@ -44,12 +78,30 @@
         </div>
 
         <div class="botones">
-            <button>Tipo 1</button>
-            <button>Tipo 2</button>
-            <button>Tipo 3</button>
-            <button>Tipo 4</button>
+            <button id="btn1">Tipo 1</button>
+            <button id="btn2">Tipo 2</button>
+            <button id="btn3">Tipo 3</button>
+            <button id="btn4">Tipo 4</button>
         </div>
     </main>
+
+    <script>
+        document.getElementById("btn1").onclick = () => {
+            document.getElementById("lista").className="claseLista1";
+        };
+
+        document.getElementById("btn2").onclick = () => {
+            document.getElementById("lista").className="claseLista2";
+        };
+
+        document.getElementById("btn3").onclick = () => {
+            document.getElementById("lista").className="claseLista3";
+        };
+
+        document.getElementById("btn4").onclick = () => {
+            document.getElementById("lista").className="claseLista4";
+        };
+    </script>
 </body>
 
 </html>
