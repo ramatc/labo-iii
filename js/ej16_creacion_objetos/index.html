@@ -39,7 +39,7 @@
             border: 2px solid white;
         }
 
-        .container {
+        #container {
             width: 60%;
             height: 350px;
             background-color: violet;
@@ -71,20 +71,36 @@
             <button id="btnInfo">Info</button>
         </div>
 
-        <div class="container">
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-            <div class="elemento">Elemento creado: 0</div>
-        </div>
+        <div id="container"></div>
     </main>
+
+    <script>
+        var contenedor = document.getElementById("container");
+
+        document.getElementById("btnCrear").onclick = () => {
+            var objDiv = document.createElement("div");
+            var textoHtml = `<h3>Elemento creado: ${contenedor.childNodes.length} </h3>`;
+
+            objDiv.innerHTML = textoHtml;
+            objDiv.className = "elemento";
+
+            contenedor.appendChild(objDiv);
+        };
+
+        document.getElementById("btnLimpiar").onclick = () => {
+            while (contenedor.childNodes.length > 0) {
+                contenedor.removeChild(contenedor.childNodes[0]);
+            }
+        };
+ 
+        document.getElementById("btnInfo").onclick = () => {
+            alert("La longitud del childNodes es: " + contenedor.childNodes.length);
+
+            for(let i = 0; i < contenedor.childNodes.length; i++){
+                alert(`Índice: ${i} - innerHTML: ${contenedor.childNodes[i].innerHTML}`);
+            }
+        };
+    </script>
 </body>
 
 </html>
