@@ -63,6 +63,94 @@
             "precio": "450",
             "categoria": "adidas",
             "fechaAlta": "16/06/2023"
+        },
+        {
+            "codigoArt": "AA323",
+            "nombre": "PUMA FUTURE RIDER NES (2020)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "1100",
+            "categoria": "puma",
+            "fechaAlta": "11/06/2023"
+        },
+        {
+            "codigoArt": "AA823",
+            "nombre": "ADIDAS OZWEEGO ORANGE (YOUTH)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "450",
+            "categoria": "adidas",
+            "fechaAlta": "16/06/2023"
+        },
+        {
+            "codigoArt": "AA323",
+            "nombre": "PUMA FUTURE RIDER NES (2020)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "1100",
+            "categoria": "puma",
+            "fechaAlta": "11/06/2023"
+        },
+        {
+            "codigoArt": "AA823",
+            "nombre": "ADIDAS OZWEEGO ORANGE (YOUTH)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "450",
+            "categoria": "adidas",
+            "fechaAlta": "16/06/2023"
+        },
+        {
+            "codigoArt": "AA323",
+            "nombre": "PUMA FUTURE RIDER NES (2020)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "1100",
+            "categoria": "puma",
+            "fechaAlta": "11/06/2023"
+        },
+        {
+            "codigoArt": "AA823",
+            "nombre": "ADIDAS OZWEEGO ORANGE (YOUTH)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "450",
+            "categoria": "adidas",
+            "fechaAlta": "16/06/2023"
+        },
+        {
+            "codigoArt": "AA823",
+            "nombre": "NIKE AIR MAX 90 INFRARED (2020)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "450",
+            "categoria": "nike",
+            "fechaAlta": "16/06/2023"
+        },
+        {
+            "codigoArt": "AA823",
+            "nombre": "ADIDAS OZWEEGO ORANGE (YOUTH)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "450",
+            "categoria": "adidas",
+            "fechaAlta": "16/06/2023"
+        },
+        {
+            "codigoArt": "AA723",
+            "nombre": "NEW BALANCE 327 CASABLANCA GREEN LOGO",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "650",
+            "categoria": "new-balance",
+            "fechaAlta": "15/06/2023"
+        },
+        {
+            "codigoArt": "AA823",
+            "nombre": "ADIDAS OZWEEGO ORANGE (YOUTH)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "450",
+            "categoria": "adidas",
+            "fechaAlta": "16/06/2023"
+        },
+        {
+            "codigoArt": "AA823",
+            "nombre": "NIKE AIR MAX 90 INFRARED (2020)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "450",
+            "categoria": "nike",
+            "fechaAlta": "16/06/2023"
         }
     ]
 }

@@ -67,18 +67,28 @@
             background: rgba(0, 0, 0, .2);
         }
 
-        #cargarDatos {
-            margin-left: 100px;
-        }
-
         button {
             width: 100px;
             padding: 7px;
             cursor: pointer;
         }
 
+        thead {
+            position: sticky;
+            top: 0;
+        }
+
+        tfoot {
+            position: sticky;
+            bottom: 0;
+        }
+
         [campo-dato="codArt"] {
             font-weight: bold;
+        }
+
+        #cargarDatos {
+            margin-left: 100px;
         }
 
         @media (max-width: 600px) {
@@ -134,6 +144,17 @@
             </thead>
 
             <tbody id="tabla"></tbody>
+            
+            <tfoot>
+                <tr>
+                    <th campo-dato="codArt">Cod. Art.</th>
+                    <th campo-dato="art">Artículo</th>
+                    <th campo-dato="desc">Descripción</th>
+                    <th campo-dato="precio">Precio</th>
+                    <th campo-dato="categoria">Categoría</th>
+                    <th campo-dato="fecha-alta">Fecha alta</th>
+                </tr>
+            </tfoot>
         </table>
     </main>
 
