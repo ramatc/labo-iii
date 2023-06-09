@@ -1,12 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 3 - Ventana modal</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            background-color: #252525;
+        }
+
+        header {
+            background-color: darkcyan;
+            text-align: center;
+            padding: 30px;
+        }
+
+        main {
+            width: 100%;
+            display: flex;
+        }
+
+        footer {
+            background-color: darkcyan;
+            padding: 30px;
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            overflow: auto;
+            background-color: aquamarine;
+        }
+
+        label {
+            display: block;
+        }
+
+        .input {
+            width: 100px;
+            font-size: 18px;
+        }
+
+        .btnModal {
+            margin: 10px;
+            background-color: crimson;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            transition: all 0.6s ease;
+        }
+
+        .btnModal:hover {
+            background-color: rgba(220, 20, 60, 0.636);
+            color: white;
+        }
+
+        .ventanaModalApagado {
+            visibility: hidden;
+        }
+
+        .ventanaModalPrendido {
+            visibility: visible;
+        }
+
+        .contenedorActivo {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .contenedorInactivo {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .btnForm {
+            width: 40%;
+            padding: 20px;
+            height: 80%;
+            background-color: aquamarine;
+            cursor: pointer;
+        }
+
+        .entrada {
+            height: auto;
+            float: left;
+            padding: 25px;
+            background-color: aquamarine;
+        }
+
+        .barraControl {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #ventanaModal {
+            width: 40%;
+            height: 300px;
+            margin: auto;
+        }
+
+        .encabezado {
+            background-color: yellowgreen;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .encabezado button{ 
+            color: red;
+            border: none;
+            background-color: yellowgreen;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div id="contenedor">
+        <button id="abrirModal" class="btnModal">Abrir Div Modal</button>
+    </div>
+
+    <div id="ventanaModal">
+        <div class="encabezado">
+            <p>Ventana modal</p>
+            <button id="cerrarModal">X</button>
+        </div>
+        <header>
+            <h1>Formulario para ALTA - Maestro de Artículos</h1>
+        </header>
+
+        <main>
+            <form action="./respuesta.html" target="_blank" method="get">
+                <div class="entrada">
+                    <label for="codArt">Código de artículo:</label>
+                    <input name="codArt" id="codArt" class="input" required />
+                </div>
+
+                <div class="entrada">
+                    <label for="art">Artículo:</label>
+                    <input name="art" id="art" class="input" required />
+                </div>
+
+                <div class="entrada">
+                    <label for="desc">Descripción:</label>
+                    <input id="desc" name="desc" class="input" required />
+                </div>
+
+                <div class="entrada">
+                    <label for="precio">Precio:</label>
+                    <input type="number" name="precio" id="precio" class="input" required />
+                </div>
+
+                <div class="entrada">
+                    <label for="categoria">Categoría:</label>
+                    <select name="categoria" id="categoria">
+                    </select>
+                </div>
+
+                <div class="entrada">
+                    <label for="fecha">Fecha de alta:</label>
+                    <input type="date" id="fecha" name="fecha" required />
+                </div>
+
+                <div class="barraControl">
+                    <button type="submit" class="btnForm">Enviar</button>
+                    <button type="reset" class="btnForm">Reset</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <h2>Pie de formulario</h2>
+        </footer>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            document.getElementById('contenedor').className = "contenedorActivo";
+            document.getElementById('ventanaModal').className = "ventanaModalApagado";
+
+            $.getJSON("../categorias.json", function (data) {
+                data.categorias.forEach((argValor, indice) => {
+                    var objOpcion = document.createElement("option");
+                    objOpcion.setAttribute("value", argValor.codigo);
+                    objOpcion.innerHTML = argValor.nombre;
+                    document.getElementById("categoria").appendChild(objOpcion);
+                });
+            });
+
+            var fechaActual = new Date().toISOString().split("T")[0];
+            document.getElementById("fecha").value = fechaActual;
+        });
+
+        $("#abrirModal").click(function() {
+            document.getElementById('ventanaModal').className = "ventanaModalPrendido";
+            document.getElementById('contenedor').className = "contenedorInactivo";
+        })
+
+        $("#cerrarModal").click(function() {
+            document.getElementById('contenedor').className = "contenedorActivo";
+            document.getElementById('ventanaModal').className = "ventanaModalApagado";
+        })
+    </script>
 </body>
+
 </html>
