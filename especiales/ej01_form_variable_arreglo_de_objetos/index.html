@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1 - Form variable y arreglo de objetos</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        header {
+            background-color: darkcyan;
+            height: 10%;
+            text-align: center;
+            padding: 30px;
+        }
+
+        main {
+            height: 80%;
+            width: 100%;
+            display: flex;
+        }
+
+        footer {
+            background-color: darkcyan;
+            padding: 30px;
+            height: 10%;
+        }
+
+        form {
+            width: 100%;
+            overflow: auto;
+            background-color: aquamarine;
+        }
+
+        label {
+            display: block;
+        }
+
+        .input {
+            width: 250px;
+            font-size: 18px;
+        }
+
+        button {
+            width: 40%;
+            padding: 20px;
+            height: 80%;
+            background-color: aquamarine;
+            cursor: pointer;
+        }
+
+        .entrada {
+            height: auto;
+            float: left;
+            padding: 25px;
+            background-color: aquamarine;
+            width: 100%;
+            height: 250px;
+        }
+
+        .barraControl {
+            clear: both;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: cadetblue;
+            gap: 12px;
+            padding: 20px;
+        }
+
+        @media (min-width:700px) {
+            .entrada {
+                width: 25%;
+            }
+
+            button {
+                width: 20%;
+            }
+        }
+
+        @media (min-width:900px) {
+            .entrada {
+                width: 20%;
+            }
+
+            button {
+                width: 10%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Formulario para ALTA - Maestro de Artículos</h1>
+    </header>
+
+    <main>
+        <form action="./respuesta.html" target="_blank" method="get">
+            <div class="entrada">
+                <label for="codArt">Código de artículo:</label>
+                <input name="codArt" id="codArt" class="input" required />
+            </div>
+
+            <div class="entrada">
+                <label for="art">Artículo:</label>
+                <input name="art" id="art" class="input" required />
+            </div>
+
+            <div class="entrada">
+                <label for="desc">Descripción:</label>
+                <input id="desc" name="desc" class="input" required />
+            </div>
+
+            <div class="entrada">
+                <label for="precio">Precio:</label>
+                <input type="number" name="precio" id="precio" class="input" required />
+            </div>
+
+            <div class="entrada">
+                <label for="categoria">Categoría:</label>
+                <select name="categoria" id="categoria">
+                </select>
+            </div>
+
+            <div class="entrada">
+                <label for="fecha">Fecha de alta:</label>
+                <input type="date" id="fecha" name="fecha" required />
+            </div>
+
+            <div class="barraControl">
+                <button type="submit">Enviar</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <h2>Pie de formulario</h2>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON("../categorias.json", function (data) {
+                data.categorias.forEach((argValor, indice) => {
+                    var objOpcion = document.createElement("option");
+                    objOpcion.setAttribute("value", argValor.codigo);
+                    objOpcion.innerHTML = argValor.nombre;
+                    document.getElementById("categoria").appendChild(objOpcion);
+                });
+            });
+
+            var fechaActual = new Date().toISOString().split("T")[0];
+            document.getElementById("fecha").value = fechaActual;
+        });
+    </script>
+</body>
+
+</html>

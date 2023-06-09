@@ -1,0 +1,24 @@
+{
+    "categorias": [
+        {
+            "codigo": "adidas",
+            "nombre": "Adidas"
+        },
+        {
+            "codigo": "nike",
+            "nombre": "Nike"
+        },
+        {
+            "codigo": "new-balance",
+            "nombre": "New Balance"
+        },
+        {
+            "codigo": "puma",
+            "nombre": "Puma"
+        },
+        {
+            "codigo": "vans",
+            "nombre": "Vans"
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "articulos": [
+        {
+            "codigoArt": "AA123",
+            "nombre": "NEW BALANCE 997 SPORT CHINESE N.Y",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "2500",
+            "categoria": "new-balance",
+            "fechaAlta": "09/06/2023"
+        },
+        {
+            "codigoArt": "AA223",
+            "nombre": "VANS OLD SKOOL BLACK WHITE",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "1300",
+            "categoria": "vans",
+            "fechaAlta": "10/06/2023"
+        },
+        {
+            "codigoArt": "AA323",
+            "nombre": "PUMA FUTURE RIDER NES (2020)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "1100",
+            "categoria": "puma",
+            "fechaAlta": "11/06/2023"
+        },
+        {
+            "codigoArt": "AA423",
+            "nombre": "NIKE AIR MAX 90 INFRARED (2020)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "1700",
+            "categoria": "nike",
+            "fechaAlta": "12/06/2023"
+        },
+        {
+            "codigoArt": "AA523",
+            "nombre": "ADIDAS NITE JOGGER 3M NAVY",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "850",
+            "categoria": "adidas",
+            "fechaAlta": "13/06/2023"
+        },
+        {
+            "codigoArt": "AA623",
+            "nombre": "NIKE AIR MAX 95 OG NEON (2020)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "500",
+            "categoria": "nike",
+            "fechaAlta": "14/06/2023"
+        },
+        {
+            "codigoArt": "AA723",
+            "nombre": "NEW BALANCE 327 CASABLANCA GREEN LOGO",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "650",
+            "categoria": "new-balance",
+            "fechaAlta": "15/06/2023"
+        },
+        {
+            "codigoArt": "AA823",
+            "nombre": "ADIDAS OZWEEGO ORANGE (YOUTH)",
+            "descripcion": "Forro interno textil. Suela de caucho. Exterior de malla con revestimientos de gamuza y TPU.",
+            "precio": "450",
+            "categoria": "adidas",
+            "fechaAlta": "16/06/2023"
+        }
+    ]
+}
