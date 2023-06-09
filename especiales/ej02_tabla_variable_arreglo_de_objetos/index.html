@@ -1,12 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 2 - Tabla variable y arreglo de objetos</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        header {
+            background-color: darkcyan;
+            height: 10%;
+            padding: 30px;
+        }
+
+        main {
+            height: 80%;
+            overflow: auto;
+        }
+
+        footer {
+            background-color: darkcyan;
+            padding: 30px;
+            height: 10%;
+        }
+
+        header,
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            background-color: cornflowerblue;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: orangered;
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid orange;
+        }
+
+        td {
+            text-align: center;
+            padding: 20px;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: rgba(0, 0, 0, .2);
+        }
+
+        #cargarDatos {
+            margin-left: 100px;
+        }
+
+        button {
+            width: 100px;
+            padding: 7px;
+            cursor: pointer;
+        }
+
+        [campo-dato="codArt"] {
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            [campo-dato="precio"] {
+                display: none;
+            }
+
+            [campo-dato="desc"] {
+                width: 85vw;
+            }
+        }
+
+        @media (max-width: 900px) {
+            [campo-dato="categoria"] {
+                display: none;
+            }
+
+            [campo-dato="precio"] {
+                width: 60vw;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            [campo-dato="fecha-alta"] {
+                display: none;
+            }
+
+            [campo-dato="categoria"] {
+                width: 35vw;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    
+    <header>
+        <h2>Rwd (Responsive Web Desing) TABLE:</h2>
+        <button id="cargarDatos">Cargar datos</button>
+        <button id="vaciarDatos">Vaciar datos</button>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th campo-dato="codArt">Cod. Art.</th>
+                    <th campo-dato="art">Artículo</th>
+                    <th campo-dato="desc">Descripción</th>
+                    <th campo-dato="precio">Precio</th>
+                    <th campo-dato="categoria">Categoría</th>
+                    <th campo-dato="fecha-alta">Fecha alta</th>
+                </tr>
+            </thead>
+
+            <tbody id="tabla"></tbody>
+        </table>
+    </main>
+
+    <footer>
+        <h2>Footer</h2>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $("#cargarDatos").click(function () {
+                if (document.getElementById("tabla").childNodes.length === 0) {
+                    $.getJSON("../articulos.json", function (data) {
+                        data.articulos.forEach((argValor, indice) => {
+                            var objTr = document.createElement("tr");
+                            var codigoArt = document.createElement("td");
+                            var articulo = document.createElement("td");
+                            var descripcion = document.createElement("td");
+                            var precio = document.createElement("td");
+                            var categoria = document.createElement("td");
+                            var fechaAlta = document.createElement("td");
+
+                            codigoArt.setAttribute("campo-dato", "codArt");
+                            codigoArt.innerHTML = argValor.codigoArt;
+                            objTr.appendChild(codigoArt);
+
+                            articulo.setAttribute("campo-dato", "art");
+                            articulo.innerHTML = argValor.nombre;
+                            objTr.appendChild(articulo);
+
+                            descripcion.setAttribute("campo-dato", "desc");
+                            descripcion.innerHTML = argValor.descripcion;
+                            objTr.appendChild(descripcion);
+
+                            precio.setAttribute("campo-dato", "precio");
+                            precio.innerHTML = argValor.precio;
+                            objTr.appendChild(precio);
+
+                            categoria.setAttribute("campo-dato", "categoria");
+                            categoria.innerHTML = argValor.categoria;
+                            objTr.appendChild(categoria);
+
+                            fechaAlta.setAttribute("campo-dato", "fecha-alta");
+                            fechaAlta.innerHTML = argValor.fechaAlta;
+                            objTr.appendChild(fechaAlta);
+
+                            document.getElementById("tabla").appendChild(objTr);
+                        });
+                    });
+                }
+            });
+        });
+
+
+
+        $("#vaciarDatos").click(function () {
+            $("#tabla").empty();
+        })
+    </script>
 </body>
+
 </html>
