@@ -24,10 +24,14 @@
             background-color: #252525;
         }
 
-        header {
-            background-color: darkcyan;
-            text-align: center;
+        header, footer {
+            background-color: crimson;
             padding: 30px;
+            color: #fafafa;
+        }
+
+        header {
+            text-align: center;
         }
 
         main {
@@ -35,25 +39,21 @@
             display: flex;
         }
 
-        footer {
-            background-color: darkcyan;
-            padding: 30px;
-        }
-
         form {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
             overflow: auto;
-            background-color: aquamarine;
+            background-color: #e16e75;
         }
 
         label {
             display: block;
+            font-size: 17px;
         }
 
         .input {
-            width: 100px;
+            width: 180px;
             font-size: 18px;
         }
 
@@ -93,24 +93,28 @@
         }
 
         .btnForm {
-            width: 40%;
+            width: 30%;
             padding: 20px;
-            height: 80%;
-            background-color: aquamarine;
+            background-color: #e16e75;
+            color: #fafafa;
             cursor: pointer;
+            border: 1px solid #252525;
+            border-radius: 7px;
+            font-size: 18px;
         }
 
         .entrada {
             height: auto;
             float: left;
             padding: 25px;
-            background-color: aquamarine;
+            background-color: #e16e75;
         }
 
         .barraControl {
             width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
+            margin: 10px 0px;
         }
 
         #ventanaModal {
@@ -124,6 +128,8 @@
             display: flex;
             justify-content: space-between;
             padding: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
 
         .encabezado button{ 

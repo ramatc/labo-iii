@@ -95,36 +95,6 @@
             height: 100%;
         }
 
-        @media (max-width: 600px) {
-            [campo-dato="precio"] {
-                display: none;
-            }
-
-            [campo-dato="desc"] {
-                width: 85vw;
-            }
-        }
-
-        @media (max-width: 900px) {
-            [campo-dato="categoria"] {
-                display: none;
-            }
-
-            [campo-dato="precio"] {
-                width: 60vw;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            [campo-dato="fecha-alta"] {
-                display: none;
-            }
-
-            [campo-dato="categoria"] {
-                width: 35vw;
-            }
-        }
-
         .headerModal {
             background-color: darkcyan;
             text-align: center;
@@ -215,13 +185,13 @@
         }
 
         #ventanaModal {
-            width: 40%;
             height: 300px;
             position: fixed;
             top: 20%;
             left: 30%;
             padding: 20px;
             z-index: 10;
+            width: 40%;
         }
 
         .encabezado {
@@ -237,6 +207,41 @@
             background-color: gainsboro;
             font-size: 18px;
             cursor: pointer;
+        }
+
+        @media (max-width: 600px) {
+            [campo-dato="precio"] {
+                display: none;
+            }
+
+            [campo-dato="desc"] {
+                width: 85vw;
+            }
+        }
+
+        @media (max-width: 900px) {
+            [campo-dato="categoria"] {
+                display: none;
+            }
+
+            [campo-dato="precio"] {
+                width: 60vw;
+            }
+
+            #ventanaModal {
+                left: 0;
+                width: auto;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            [campo-dato="fecha-alta"] {
+                display: none;
+            }
+
+            [campo-dato="categoria"] {
+                width: 35vw;
+            }
         }
     </style>
 </head>
