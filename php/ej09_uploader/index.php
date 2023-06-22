@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-
+    echo "<h1>Uploader</h1>";
     ?>
 </body>
 </html>

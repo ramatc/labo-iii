@@ -46,7 +46,6 @@
                             Ingresé la clave a encriptar:
                             <input type='text' name='encrypt' required>
                     </label><br/>";
-
         echo "<button>Obtener encriptación</button>";
         echo "</form>";
     }
