@@ -203,7 +203,6 @@
     echo '<input type="date" id="nacim" name="nacim" required />';
     echo '</div>';
     echo '<div id="resultado">
-    <h2>Esperando respuesta ..</h2>
     </div>';
     echo '<div class="barraControl">';
     echo '<button id="enviar" class="btnForm">Enviar</button>';
