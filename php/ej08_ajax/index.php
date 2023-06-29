@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <title>Ejercicio 10 - Ajax</title>
+    <title>Ejercicio 8 - Ajax</title>
     <style>
         * {
             box-sizing: border-box;

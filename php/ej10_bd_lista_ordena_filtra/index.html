@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10 - BD Lista ordena filtra</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        header {
+            background-color: #252525;
+            height: 10%;
+            padding: 30px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        main {
+            height: 80%;
+            overflow: auto;
+        }
+
+        footer {
+            background-color: #252525;
+            color: #fafafa;
+            padding: 30px;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(220, 20, 60, 0.478);
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: crimson;
+            padding: 15px;
+            text-align: center;
+            border-right: 2px solid #252525;
+            font-size: 18px;
+        }
+
+        td {
+            text-align: center;
+            padding: 20px;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: rgba(0, 0, 0, .2);
+        }
+
+        #orden {
+            font-size: 20px;
+            margin: 0 5px;
+            height: 45px;
+        }
+
+        .filter {
+            display: block;
+            height: 30px;
+            margin: auto;
+        }
+
+        button {
+            width: 100px;
+            height: 45px;
+            padding: 7px;
+            margin: 4px;
+            cursor: pointer;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+        }
+
+        thead .head-tr th {
+            cursor: pointer;
+        }
+
+        tfoot {
+            position: sticky;
+            bottom: 0;
+        }
+
+        [campo-dato="codArt"] {
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            [campo-dato="precio"] {
+                display: none;
+            }
+
+            [campo-dato="descripcion"] {
+                width: 85vw;
+            }
+        }
+
+        @media (max-width: 900px) {
+            [campo-dato="color"] {
+                display: none;
+            }
+
+            [campo-dato="precio"] {
+                width: 60vw;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            [campo-dato="fecha"] {
+                display: none;
+            }
+
+            [campo-dato="color"] {
+                width: 35vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <input type="text" id="orden" value="codArt" readonly/>
+        <button id="cargarDatos">Cargar datos</button>
+        <button id="vaciarDatos">Vaciar datos</button>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <tr class="head-tr">
+                    <th campo-dato="codArt" id="codArt">Cod. Art.</th>
+                    <th campo-dato="marca" id="marca">Marca</th>
+                    <th campo-dato="descripcion" id="descripcion">Descripción</th>
+                    <th campo-dato="color" id="color">Color</th>
+                    <th campo-dato="fecha" id="fecha">Año</th>
+                    <th campo-dato="precio" id="precio">Precio</th>
+                </tr>
+
+                <tr>
+                    <th campo-dato="codArt"><input id="filterCodArt" class="filter"/></th>
+                    <th campo-dato="marca">
+                        <select name="select" id="filterMarca" class="filter">
+                            <option value=""></option>
+                      </select>
+                    </th>
+                    <th campo-dato="descripcion"><input id="filterDesc" class="filter"/></th>
+                    <th campo-dato="color"><input id="filterColor" class="filter"/></th>
+                    <th campo-dato="fecha"><input id="filterFecha" class="filter"/></th>
+                    <th campo-dato="precio"><input id="filterPrecio" class="filter"/></th>
+                </tr>
+            </thead>
+
+            <tbody id="tabla"></tbody>
+
+            <tfoot>
+                <tr>
+                    <th campo-dato="codArt">Cod. Art.</th>
+                    <th campo-dato="marca">Marca</th>
+                    <th campo-dato="descripcion">Descripción</th>
+                    <th campo-dato="color">Color</th>
+                    <th campo-dato="fecha">Año</th>
+                    <th campo-dato="precio">Precio</th>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+
+    <footer>
+        <h2>Footer</h2>
+        <h3 id="cantidad"></h3>
+    </footer>
+
+    <script>
+    $(document).ready(function(){
+        $.ajax({
+            type: "get",
+            url:"./jsonMarcas.php",
+            success: function(respuestaDelServer, estado){
+                var objJson = JSON.parse(respuestaDelServer);
+                alert(respuestaDelServer);
+
+                objJson.marcas.forEach(marca => {
+                    var objOpcion = document.createElement("option");
+                    objOpcion.setAttribute("value", marca.cod);
+                    objOpcion.innerHTML = marca.nombre;
+                    document.getElementById("filterMarca").appendChild(objOpcion);
+                });
+            }
+        })
+
+        $("#codArt").click(function(){
+            $("#orden").val("codArt");
+        });
+
+        $("#marca").click(function(){
+            $("#orden").val("marca");
+        });
+
+        $("#descripcion").click(function(){
+            $("#orden").val("descripcion");
+        });
+
+        $("#color").click(function(){
+            $("#orden").val("color");
+        });
+
+        $("#fecha").click(function(){
+            $("#orden").val("fecha");
+        });
+
+        $("#precio").click(function(){
+            $("#orden").val("precio");
+        });
+
+        function cargarTabla(){
+            $("#tabla").empty();
+            $("#tabla").html("<h2>Esperando respuesta...</h2>");
+            $("#cantidad").empty();
+
+            $.ajax({
+                type: "get",
+                url:"./conexionBd.php",
+                data: { 
+                        orden: $("#orden").val(), 
+                        codArt: $("#filterCodArt").val(),
+                        marca: $("#filterMarca").val(),
+                        desc: $("#filterDesc").val(),
+                        color: $("#filterColor").val(),
+                        fecha: $("#filterFecha").val(),
+                        precio: $("#filterPrecio").val()
+                    },
+                success: function(respuestaDelServer, estado){
+                    $("#tabla").empty();
+
+                    var objJson = JSON.parse(respuestaDelServer);
+                    alert(respuestaDelServer);
+
+                    $("#cantidad").append("Cantidad de zapatillas:" + objJson.cantidad);
+
+                    objJson.zapatillas.forEach(function(zapatilla, i)
+                    {
+                        var objTr = document.createElement("tr");
+                        var codArt = document.createElement("td");
+                        var marca = document.createElement("td");
+                        var descripcion = document.createElement("td");
+                        var color = document.createElement("td");
+                        var fecha = document.createElement("td");
+                        var precio = document.createElement("td");
+                        
+                        codArt.setAttribute("campo-dato", "codArt");
+                        codArt.innerHTML = zapatilla.codArt;
+                        objTr.appendChild(codArt);
+
+                        marca.setAttribute("campo-dato", "marca");
+                        marca.innerHTML = zapatilla.marca;
+                        objTr.appendChild(marca);
+
+                        descripcion.setAttribute("campo-dato", "descripcion");
+                        descripcion.innerHTML = zapatilla.descripcion;
+                        objTr.appendChild(descripcion);
+
+                        color.setAttribute("campo-dato", "color");
+                        color.innerHTML = zapatilla.color;
+                        objTr.appendChild(color);
+
+                        fecha.setAttribute("campo-dato", "fecha");
+                        fecha.innerHTML = zapatilla.fecha;
+                        objTr.appendChild(fecha);
+
+                        precio.setAttribute("campo-dato", "precio");
+                        precio.innerHTML = zapatilla.precio;
+                        objTr.appendChild(precio);
+
+                        $("#tabla").append(objTr);
+                    });
+                }
+            })
+        }
+
+        $("#cargarDatos").click(function(){
+            cargarTabla();
+        });
+
+        $("#vaciarDatos").click(function(){
+            $("#tabla").empty();
+            $("#cantidad").empty();
+        })
+    });
+    </script>
+</body>
+
+</html>
