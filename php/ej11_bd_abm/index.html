@@ -117,12 +117,7 @@
             text-transform: capitalize;
         }
 
-        .mainModal {
-            width: 100%;
-            display: flex;
-        }
-
-        .form {
+        form {
             width: 100%;
             display: flex;
             flex-wrap: wrap;
@@ -200,12 +195,12 @@
             width: 40%;
         }
 
-        .entrada{
+        .entrada {
             width: 50%;
             padding: 30px;
         }
 
-        .entrada input{
+        .entrada input {
             width: 100%;
             padding: 7px;
         }
@@ -258,7 +253,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="header">
         <h3 style="color: white;">Orden:</h3>
         <input type="text" id="orden" value="codArt" readonly />
         <button id="cargarDatos">Cargar datos</button>
@@ -324,7 +319,7 @@
         </div>
 
         <main class="mainModal">
-            <div class="form">
+            <form id="formAlta" method="post" enctype="multipart/form-data">
                 <div class="entrada">
                     <label for="codArtAlta">Código de artículo:</label>
                     <input name="codArtAlta" id="codArtAlta" class="input" required />
@@ -356,11 +351,15 @@
                     <input id="precioAlta" name="precioAlta" required />
                 </div>
 
-                <div class="barraControl">
-                    <button type="submit" class="btnForm">Enviar</button>
-                    <button type="reset" class="btnForm">Reset</button>
+                <div class="entrada">
+                    <label for="pdfAlta">PDF:</label>
+                    <input type="file" id="pdfAlta" name="pdfAlta" />
                 </div>
-            </div>
+
+                <div class="barraControl">
+                    <button type="button" id="envioAlta" class="btnForm">Enviar</button>
+                </div>
+            </form>
         </main>
     </div>
 
@@ -371,47 +370,51 @@
         </div>
 
         <main class="mainModal">
-            <div class="form">
+            <form id="formModi" method="post" enctype="multipart/form-data">
                 <div class="entrada">
-                    <label for="codArt">Código de artículo:</label>
-                    <input name="codArt" id="codArt" class="input" required />
+                    <label for="codArtModi">Código de artículo:</label>
+                    <input name="codArtModi" id="codArtModi" class="input" required />
                 </div>
 
                 <div class="entrada">
-                    <label for="art">Artículo:</label>
-                    <input name="art" id="art" class="input" required />
-                </div>
-
-                <div class="entrada">
-                    <label for="desc">Descripción:</label>
-                    <input id="desc" name="desc" class="input" required />
-                </div>
-
-                <div class="entrada">
-                    <label for="precio">Precio:</label>
-                    <input type="number" name="precio" id="precio" class="input" required />
-                </div>
-
-                <div class="entrada">
-                    <label for="categoria">Categoría:</label>
-                    <select name="categoria" id="categoria">
+                    <label for="marcaModi">Marca:</label>
+                    <select name="marcaModi" id="marcaModi">
                     </select>
                 </div>
 
                 <div class="entrada">
-                    <label for="fecha">Fecha de alta:</label>
-                    <input type="date" id="fecha" name="fecha" required />
+                    <label for="descripcionModi">Descripción:</label>
+                    <input id="descripcionModi" name="descripcionModi" class="input" required />
+                </div>
+
+                <div class="entrada">
+                    <label for="colorModi">Color:</label>
+                    <input name="colorModi" id="colorModi" class="input" required />
+                </div>
+
+                <div class="entrada">
+                    <label for="fechaModi">Año:</label>
+                    <input name="fechaModi" id="fechaModi" class="input" required />
+                </div>
+
+                <div class="entrada">
+                    <label for="precioModi">Precio:</label>
+                    <input id="precioModi" name="precioModi" required />
+                </div>
+
+                <div class="entrada">
+                    <label for="pdfModi">PDF:</label>
+                    <input type="file" id="pdfModi" name="pdfModi" />
                 </div>
 
                 <div class="barraControl">
-                    <button type="submit" class="btnForm">Enviar</button>
-                    <button type="reset" class="btnForm">Reset</button>
+                    <button type="button" id="envioModi" class="btnForm">Enviar</button>
                 </div>
-            </div>
+            </form>
         </main>
     </div>
 
-    <footer>
+    <footer id="footer">
         <h2>Footer</h2>
         <h3 id="cantidad"></h3>
     </footer>
@@ -423,13 +426,23 @@
                 url: "./jsonMarcas.php",
                 success: function (respuestaDelServer, estado) {
                     var objJson = JSON.parse(respuestaDelServer);
-                    // alert(respuestaDelServer);
+                    alert(respuestaDelServer);
 
                     objJson.marcas.forEach(marca => {
                         var objOpcion = document.createElement("option");
                         objOpcion.setAttribute("value", marca.cod);
                         objOpcion.innerHTML = marca.nombre;
                         document.getElementById("filterMarca").appendChild(objOpcion);
+
+                        var objOpcion1 = document.createElement("option");
+                        objOpcion1.setAttribute("value", marca.cod);
+                        objOpcion1.innerHTML = marca.nombre;
+                        document.getElementById("marcaAlta").appendChild(objOpcion1);
+
+                        var objOpcion2 = document.createElement("option");
+                        objOpcion2.setAttribute("value", marca.cod);
+                        objOpcion2.innerHTML = marca.nombre;
+                        document.getElementById("marcaModi").appendChild(objOpcion2);
                     });
                 }
             })
@@ -484,7 +497,7 @@
                     $("#tabla").empty();
 
                     var objJson = JSON.parse(respuestaDelServer);
-                    // alert(respuestaDelServer);
+                    alert(respuestaDelServer);
 
                     $("#cantidad").append("Cantidad de zapatillas:" + objJson.cantidad);
 
@@ -529,11 +542,11 @@
                         objTr.appendChild(btnPdf);
 
                         btnModi.setAttribute("campo-dato", "modi");
-                        btnModi.innerHTML = `<button>Modif</button>`;
+                        btnModi.innerHTML = `<button onClick=abrirModal(${zapatilla.codArt})>Modif</button>`;
                         objTr.appendChild(btnModi);
 
                         btnBaja.setAttribute("campo-dato", "baja");
-                        btnBaja.innerHTML = `<button onClick=alert(${zapatilla.codArt})>Borrar</button>`;
+                        btnBaja.innerHTML = `<button>Borrar</button>`;
                         objTr.appendChild(btnBaja);
 
                         $("#tabla").append(objTr);
@@ -541,6 +554,72 @@
                 }
             })
         });
+
+        function contenedorActivo(){
+            document.getElementById('contenedor').className = "contenedorActivo";
+            document.getElementById('header').className = "contenedorActivo";
+            document.getElementById('footer').className = "contenedorActivo";
+        }
+
+        function contenedorInactivo(){
+            document.getElementById('contenedor').className = "contenedorInactivo";
+            document.getElementById('header').className = "contenedorInactivo";
+            document.getElementById('footer').className = "contenedorInactivo";
+        }
+
+        function abrirModal(codArt) {
+            document.getElementById('modalModi').className = "ventanaModalPrendido";
+            contenedorInactivo();
+            
+            $.ajax({
+                type: "get",
+                url: "./salidaJsonArticulo.php",
+                data: { codArt: codArt },
+                success: function (respuestaDelServer, estado) {
+                    objetoDato = JSON.parse(respuestaDelServer);
+                    $("#codArtModi").val(objetoDato.codArt);
+                    $("#marcaModi").val(objetoDato.marca);
+                    $("#descripcionModi").val(objetoDato.descripcion);
+                    $("#colorModi").val(objetoDato.color);
+                    $("#fechaModi").val(objetoDato.fecha);
+                    $("#precioModi").val(objetoDato.precio);
+                }
+            });
+        }
+
+        $("#envioAlta").click(function () {
+            var data = new FormData(document.getElementById("formAlta"));
+
+            $.ajax({
+                type: "post",
+                method: "post",
+                enctype: "multipart/form-data",
+                url:"./alta.php",
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: data,
+                success: function (respuestaDelServer) {
+                    objetoDato = JSON.parse(respuestaDelServer);
+                }
+            });
+        })
+
+        $("#envioModi").click(function () {
+            $.ajax({
+                type: "post",
+                method: "post",
+                enctype: "multipart/form-data",
+                url:"./modi.php",
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: data,
+                success: function (respuestaDelServer) {
+                    // objetoDato = JSON.parse(respuestaDelServer);
+                }
+            });
+        })
 
         $("#vaciarDatos").click(function () {
             $("#tabla").empty();
@@ -559,22 +638,17 @@
 
         $("#altaRegistro").click(function () {
             document.getElementById('modalAlta').className = "ventanaModalPrendido";
-            document.getElementById('contenedor').className = "contenedorInactivo";
+            contenedorInactivo();
         });
 
         $("#cerrarModalAlta").click(function () {
             document.getElementById('modalAlta').className = "ventanaModalApagado";
-            document.getElementById('contenedor').className = "contenedorActivo";
-        });
-
-        $("#abrirModalModi").click(function () {
-            document.getElementById('modalModi').className = "ventanaModalPrendido";
-            document.getElementById('contenedor').className = "contenedorInactivo";
+            contenedorActivo();
         });
 
         $("#cerrarModalModi").click(function () {
             document.getElementById('modalModi').className = "ventanaModalApagado";
-            document.getElementById('contenedor').className = "contenedorActivo";
+            contenedorActivo();
         });
     </script>
 </body>
