@@ -6,249 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 11 - BD Abm</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <style>
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-        }
-
-        header {
-            background-color: #252525;
-            height: 10%;
-            padding: 30px;
-            display: flex;
-            justify-content: end;
-            align-items: center;
-        }
-
-        main {
-            height: 80%;
-            overflow: auto;
-        }
-
-        footer {
-            background-color: #252525;
-            color: #fafafa;
-            padding: 30px;
-            height: 10%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        table {
-            width: 100%;
-            height: 100%;
-            background-color: #7489e5a4;
-            border-collapse: collapse;
-        }
-
-        th {
-            background-color: #7489e5;
-            padding: 7px;
-            text-align: center;
-            border-right: 2px solid #252525;
-        }
-
-        td {
-            text-align: center;
-            padding: 20px;
-        }
-
-        tbody tr:nth-child(odd) {
-            background: rgba(0, 0, 0, .2);
-        }
-
-        #orden {
-            font-size: 20px;
-            margin: 0 5px;
-            height: 45px;
-        }
-
-        .filter {
-            display: block;
-            height: 30px;
-            margin: auto;
-        }
-
-        header button {
-            width: 100px;
-            height: 45px;
-        }
-
-        header button,
-        td button {
-            padding: 7px;
-            margin: 4px;
-            cursor: pointer;
-        }
-
-        thead {
-            position: sticky;
-            top: 0;
-        }
-
-        thead .head-tr th {
-            cursor: pointer;
-        }
-
-        tfoot {
-            position: sticky;
-            bottom: 0;
-        }
-
-        #pdf,
-        #modi,
-        #baja {
-            cursor: default;
-        }
-
-        [campo-dato="codArt"] {
-            font-weight: bold;
-        }
-
-        [campo-dato="marca"] {
-            text-transform: capitalize;
-        }
-
-        form {
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            overflow: auto;
-            background-color: rgba(128, 128, 128, 0.847);
-        }
-
-        label {
-            display: block;
-        }
-
-        .input {
-            width: 100px;
-            font-size: 18px;
-        }
-
-        .ventanaModalApagado {
-            visibility: hidden;
-        }
-
-        .ventanaModalPrendido {
-            visibility: visible;
-        }
-
-        .contenedorActivo {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .contenedorInactivo {
-            opacity: 0.3;
-            pointer-events: none;
-        }
-
-        .btnForm {
-            width: 40%;
-            padding: 20px;
-            background-color: black;
-            color: white;
-            border: 2px solid #7489e5;
-            cursor: pointer;
-        }
-
-        .barraControl {
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            padding: 12px;
-        }
-
-        #modalAlta,
-        #modalModi {
-            position: fixed;
-            top: 20%;
-            left: 30%;
-            padding: 20px;
-            z-index: 10;
-            width: 40%;
-        }
-
-        #modalRes {
-            position: fixed;
-            top: 15%;
-            left: 60%;
-            padding: 20px;
-            z-index: 10;
-            width: 30%;
-        }
-
-        #respuestaServer {
-            background-color: blue;
-            color: white;
-            padding: 20px;
-        }
-
-        .entrada {
-            width: 50%;
-            padding: 30px;
-        }
-
-        .entrada input {
-            width: 100%;
-            padding: 7px;
-        }
-
-        .encabezado {
-            background-color: gainsboro;
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-        }
-
-        .encabezado button {
-            color: red;
-            border: none;
-            background-color: gainsboro;
-            cursor: pointer;
-        }
-
-        @media (max-width: 600px) {
-            [campo-dato="precio"] {
-                display: none;
-            }
-
-            [campo-dato="descripcion"] {
-                width: 85vw;
-            }
-        }
-
-        @media (max-width: 900px) {
-            [campo-dato="color"] {
-                display: none;
-            }
-
-            [campo-dato="precio"] {
-                width: 60vw;
-            }
-        }
-
-        @media (max-width: 1200px) {
-            [campo-dato="fecha"] {
-                display: none;
-            }
-
-            [campo-dato="color"] {
-                width: 35vw;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -436,7 +194,7 @@
                 url: "./jsonMarcas.php",
                 success: function (respuestaDelServer, estado) {
                     var objJson = JSON.parse(respuestaDelServer);
-                    // alert(respuestaDelServer);
+                    alert(respuestaDelServer);
 
                     objJson.marcas.forEach(marca => {
                         var objOpcion = document.createElement("option");
@@ -461,6 +219,14 @@
             document.getElementById('modalModi').className = "ventanaModalApagado";
             document.getElementById('modalAlta').className = "ventanaModalApagado";
             document.getElementById('modalRes').className = "ventanaModalApagado";
+        });
+
+        $("#formAlta").keyup(function () {
+            habilitarAlta();
+        });
+
+        $("#formModi").keyup(function () {
+            habilitarModif();
         });
 
         $("#codArt").click(function () {
@@ -508,7 +274,7 @@
                     $("#tabla").empty();
 
                     var objJson = JSON.parse(respuestaDelServer);
-                    // alert(respuestaDelServer);
+                    alert(respuestaDelServer);
 
                     $("#cantidad").append("Cantidad de zapatillas:" + objJson.cantidad);
 
@@ -566,25 +332,38 @@
             })
         });
 
-        function contenedorActivo(){
+        function contenedorActivo() {
             document.getElementById('contenedor').className = "contenedorActivo";
             document.getElementById('header').className = "contenedorActivo";
             document.getElementById('footer').className = "contenedorActivo";
         }
 
-        function contenedorInactivo(){
+        function contenedorInactivo() {
             document.getElementById('contenedor').className = "contenedorInactivo";
             document.getElementById('header').className = "contenedorInactivo";
             document.getElementById('footer').className = "contenedorInactivo";
         }
 
-        function cerrarModalAlta(){
+        function cerrarModalAlta() {
             document.getElementById('modalAlta').className = "ventanaModalApagado";
+            $("#codArtAlta").val("");
+            $("#marcaAlta").val("nike");
+            $("#descripcionAlta").val("");
+            $("#colorAlta").val("");
+            $("#fechaAlta").val("");
+            $("#precioAlta").val("");
+            $("#pdfAlta").val("");
             contenedorActivo();
         }
 
-        function cerrarModalModi(){
+        function cerrarModalModi() {
             document.getElementById('modalModi').className = "ventanaModalApagado";
+            $("#codArtModi").val("");
+            $("#marcaModi").val("");
+            $("#descripcionModi").val("");
+            $("#colorModi").val("");
+            $("#fechaModi").val("");
+            $("#precioModi").val("");
             contenedorActivo();
         }
 
@@ -592,12 +371,12 @@
             $.ajax({
                 type: "get",
                 url: "./pdf.php",
-                data: {codArt: codArt},
-                success: function(respuestaDelServer){
-                        var objetoDato = JSON.parse(respuestaDelServer);
-                        document.getElementById('modalRes').className = "ventanaModalPrendido";
-                        $("#respuestaServer").empty();
-                        $("#respuestaServer").html("<iframe width='100%' height='600px' src='data:application/pdf;base64," + objetoDato.documentoPDF + "'></iframe>");
+                data: { codArt: codArt },
+                success: function (respuestaDelServer) {
+                    var objetoDato = JSON.parse(respuestaDelServer);
+                    document.getElementById('modalRes').className = "ventanaModalPrendido";
+                    $("#respuestaServer").empty();
+                    $("#respuestaServer").html("<iframe width='100%' height='600px' src='data:application/pdf;base64," + objetoDato.documentoPDF + "'></iframe>");
                 }
             })
         }
@@ -605,7 +384,7 @@
         function abrirModal(codArt) {
             document.getElementById('modalModi').className = "ventanaModalPrendido";
             contenedorInactivo();
-            
+
             $.ajax({
                 type: "get",
                 url: "./salidaJsonArticulo.php",
@@ -622,7 +401,7 @@
             });
         }
 
-        function bajaArt(codArt) {     
+        function bajaArt(codArt) {
             if (confirm("¿Está seguro de borrar este registro?")) {
                 $.ajax({
                     type: "post",
@@ -636,8 +415,26 @@
             }
         }
 
+        function habilitarAlta() {
+            if (document.getElementById("formAlta").checkValidity() == true) {
+                $("#envioAlta").attr("disabled", false).removeClass("disabled");
+            }
+            else {
+                $("#envioAlta").attr("disabled", true).addClass("disabled");
+            }
+        }
+
+        function habilitarModif() {
+            if (document.getElementById("formModi").checkValidity() == true) {
+                $("#envioModi").attr("disabled", false).removeClass("disabled");
+            }
+            else {
+                $("#envioModi").attr("disabled", true).addClass("disabled");
+            }
+        }
+
         $("#envioAlta").click(function () {
-            if(confirm("¿Está seguro de insertar este registro?")){
+            if (confirm("¿Está seguro de insertar este registro?")) {
                 var data = new FormData($("#formAlta")[0]);
 
                 $.ajax({
@@ -648,8 +445,8 @@
                     processData: false,
                     contentType: false,
                     cache: false,
-                    data: data, 
-                    success: function(respuestaDelServer) {
+                    data: data,
+                    success: function (respuestaDelServer) {
                         document.getElementById('modalRes').className = "ventanaModalPrendido";
                         document.getElementById("respuestaServer").innerText = respuestaDelServer;
                     }
@@ -658,10 +455,8 @@
         })
 
         $("#envioModi").click(function () {
-            if(confirm("¿Está seguro de modificar este registro?")){
+            if (confirm("¿Está seguro de modificar este registro?")) {
                 var data = new FormData($("#formModi")[0]);
-
-                console.log(data)
 
                 $.ajax({
                     type: "post",
@@ -672,7 +467,7 @@
                     contentType: false,
                     cache: false,
                     data: data,
-                    success: function(respuestaDelServer) {
+                    success: function (respuestaDelServer) {
                         document.getElementById('modalRes').className = "ventanaModalPrendido";
                         document.getElementById("respuestaServer").innerText = respuestaDelServer;
                     }
@@ -698,6 +493,10 @@
         $("#altaRegistro").click(function () {
             document.getElementById('modalAlta').className = "ventanaModalPrendido";
             contenedorInactivo();
+            
+            if ($("#codArtAlta").val() == "" || $("#descripcionAlta").val() == "" || $("#colorAlta").val() == "" || $("#fechaAlta").val() || $("#precioAlta").val()) {
+                $("#envioAlta").attr("disabled", true).addClass('disabled');
+            }
         });
 
         $("#cerrarModalAlta").click(function () {
