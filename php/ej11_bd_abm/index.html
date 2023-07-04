@@ -180,6 +180,21 @@
             width: 40%;
         }
 
+        #modalRes {
+            position: fixed;
+            top: 15%;
+            left: 60%;
+            padding: 20px;
+            z-index: 10;
+            width: 30%;
+        }
+
+        #respuestaServer {
+            background-color: blue;
+            color: white;
+            padding: 20px;
+        }
+
         .entrada {
             width: 50%;
             padding: 30px;
@@ -302,7 +317,7 @@
             <button id="cerrarModalAlta">X</button>
         </div>
 
-        <main class="mainModal">
+        <main>
             <form id="formAlta" method="post" enctype="multipart/form-data">
                 <div class="entrada">
                     <label for="codArtAlta">Código de artículo:</label>
@@ -353,7 +368,7 @@
             <button id="cerrarModalModi">X</button>
         </div>
 
-        <main class="mainModal">
+        <main>
             <form id="formModi" method="post" enctype="multipart/form-data">
                 <div class="entrada">
                     <label for="codArtModi">Código de artículo:</label>
@@ -398,6 +413,17 @@
         </main>
     </div>
 
+    <div id="modalRes">
+        <div class="encabezado">
+            <p>Respuesta del servidor</p>
+            <button id="cerrarModalRes">X</button>
+        </div>
+
+        <main id="respuestaServer">
+            Respuesta del servidor
+        </main>
+    </div>
+
     <footer id="footer">
         <h2>Footer</h2>
         <h3 id="cantidad"></h3>
@@ -434,6 +460,7 @@
             document.getElementById('contenedor').className = "contenedorActivo";
             document.getElementById('modalModi').className = "ventanaModalApagado";
             document.getElementById('modalAlta').className = "ventanaModalApagado";
+            document.getElementById('modalRes').className = "ventanaModalApagado";
         });
 
         $("#codArt").click(function () {
@@ -522,7 +549,7 @@
                         objTr.appendChild(precio);
 
                         btnPdf.setAttribute("campo-dato", "pdf");
-                        btnPdf.innerHTML = `<button>PDF</button>`;
+                        btnPdf.innerHTML = `<button onClick=abrirPdf("${zapatilla.codArt}")>PDF</button>`;
                         objTr.appendChild(btnPdf);
 
                         btnModi.setAttribute("campo-dato", "modi");
@@ -551,6 +578,30 @@
             document.getElementById('footer').className = "contenedorInactivo";
         }
 
+        function cerrarModalAlta(){
+            document.getElementById('modalAlta').className = "ventanaModalApagado";
+            contenedorActivo();
+        }
+
+        function cerrarModalModi(){
+            document.getElementById('modalModi').className = "ventanaModalApagado";
+            contenedorActivo();
+        }
+
+        function abrirPdf(codArt) {
+            $.ajax({
+                type: "get",
+                url: "./pdf.php",
+                data: {codArt: codArt},
+                success: function(respuestaDelServer){
+                        $("#textoRespuesta").empty();
+                        var objetoDato = JSON.parse(respuestaDelServer);
+                        document.getElementById('modalRes').className = "ventanaModalPrendido";
+                        $("#textoRespuesta").html("<iframe width='auto' height='300px' src='data:application/pdf;base64," + objetoDato.documentoPDF + "'></iframe>");
+                }
+            })
+        }
+
         function abrirModal(codArt) {
             document.getElementById('modalModi').className = "ventanaModalPrendido";
             contenedorInactivo();
@@ -571,57 +622,62 @@
             });
         }
 
-        function bajaArt(codArt) {            
-            $.ajax({
-                type: "post",
-                url: "./baja.php",
-                data: { codArt: codArt },
-                success: function (respuestaDelServer) {
-                    console.log(respuestaDelServer)
-                }
-            });
+        function bajaArt(codArt) {     
+            if (confirm("¿Está seguro de borrar este registro?")) {
+                $.ajax({
+                    type: "post",
+                    url: "./baja.php",
+                    data: { codArt: codArt },
+                    success: function (respuestaDelServer) {
+                        document.getElementById('modalRes').className = "ventanaModalPrendido";
+                        document.getElementById("respuestaServer").innerText = respuestaDelServer;
+                    }
+                });
+            }
         }
 
         $("#envioAlta").click(function () {
-            var data = new FormData($("#formAlta")[0]);
+            if(confirm("¿Está seguro de insertar este registro?")){
+                var data = new FormData($("#formAlta")[0]);
 
-            $.ajax({
-                type: "post",
-                method: "post",
-                enctype: "multipart/form-data",
-                url: "./alta.php",
-                processData: false,
-                contentType: false,
-                cache: false,
-                data: data, 
-                success: function(respuestaDelServer)
-                {
-                    console.log(respuestaDelServer);
-                    // document.getElementById("modalRespuesta").className = "ModalVisible";
-                    // document.getElementById("textoRespuesta").innerHTML = respuesta;
-                }
-            })
+                $.ajax({
+                    type: "post",
+                    method: "post",
+                    enctype: "multipart/form-data",
+                    url: "./alta.php",
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    data: data, 
+                    success: function(respuestaDelServer) {
+                        document.getElementById('modalRes').className = "ventanaModalPrendido";
+                        document.getElementById("respuestaServer").innerText = respuestaDelServer;
+                    }
+                })
+            }
         })
 
         $("#envioModi").click(function () {
-            var data = new FormData($("#formModi")[0]);
+            if(confirm("¿Está seguro de modificar este registro?")){
+                var data = new FormData($("#formModi")[0]);
 
-            $.ajax({
-                type: "post",
-                method: "post",
-                enctype: "multipart/form-data",
-                url: "./modi.php",
-                processData: false,
-                contentType: false,
-                cache: false,
-                data: data,
-                success: function(respuestaDelServer)
-                {
-                    console.log(respuestaDelServer)
-                    // document.getElementById("modalRespuesta").className = "ModalVisible";
-                    // document.getElementById("textoRespuesta").innerText = respuestaDelServer;
-                }
-            })
+                console.log(data)
+
+                $.ajax({
+                    type: "post",
+                    method: "post",
+                    enctype: "multipart/form-data",
+                    url: "./modi.php",
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    data: data,
+                    success: function(respuestaDelServer) {
+                        document.getElementById('modalRes').className = "ventanaModalPrendido";
+                        document.getElementById("respuestaServer").innerText = respuestaDelServer;
+                    }
+                })
+            }
         })
 
         $("#vaciarDatos").click(function () {
@@ -645,14 +701,19 @@
         });
 
         $("#cerrarModalAlta").click(function () {
-            document.getElementById('modalAlta').className = "ventanaModalApagado";
-            contenedorActivo();
+            cerrarModalAlta();
         });
 
         $("#cerrarModalModi").click(function () {
-            document.getElementById('modalModi').className = "ventanaModalApagado";
-            contenedorActivo();
+            cerrarModalModi();
         });
+
+        $("#cerrarModalRes").click(function () {
+            document.getElementById('modalRes').className = "ventanaModalApagado";
+            cerrarModalModi();
+            cerrarModalAlta();
+            contenedorActivo();
+        })
     </script>
 </body>
 

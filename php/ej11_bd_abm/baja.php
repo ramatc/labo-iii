@@ -4,7 +4,7 @@ $dbname = "boter0xpekexi1ebyzxp";
 $host = "boter0xpekexi1ebyzxp-mysql.services.clever-cloud.com";
 $user = "uf7hf1x9lseshxyt";
 $password = "lG2kzZOSuVCwrD0sIntd";
-$respuesta_estado = "";
+$respuesta_estado = "Baja de artículo\n";
 
 try {
     $dsn = "mysql:host=$host;dbname=$dbname";
