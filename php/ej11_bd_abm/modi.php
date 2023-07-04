@@ -34,14 +34,14 @@ try {
 
     $stmt->execute();
 
-    if (!isset($_FILES["documentoPdf"])) {
+    if (!isset($_FILES["pdfModi"])) {
         $respuesta_estado = $respuesta_estado . "\nNo se inicializó la variable FILES";
     } else {
-        if (empty($_FILES["documentoPdf"]["name"])) {
+        if (empty($_FILES["pdfModi"]["name"])) {
             $respuesta_estado = $respuesta_estado . "\nNo ha sido seleccionado ningun archivo para enviar.";
         } else {
             $respuesta_estado = $respuesta_estado . "\nBuscando documento asociado al codigo de artículo $codArt";
-            $contenidoPDF = file_get_contents($_FILES["documentoPdf"]["tmp_name"]);
+            $contenidoPDF = file_get_contents($_FILES["pdfModi"]["tmp_name"]);
 
             $sql = "UPDATE zapatillas SET archivo = :contenidoPdf WHERE codArt = :codArt";
             $stmt = $dbh->prepare($sql);

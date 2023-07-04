@@ -594,10 +594,10 @@
                 url: "./pdf.php",
                 data: {codArt: codArt},
                 success: function(respuestaDelServer){
-                        $("#textoRespuesta").empty();
                         var objetoDato = JSON.parse(respuestaDelServer);
                         document.getElementById('modalRes').className = "ventanaModalPrendido";
-                        $("#textoRespuesta").html("<iframe width='auto' height='300px' src='data:application/pdf;base64," + objetoDato.documentoPDF + "'></iframe>");
+                        $("#respuestaServer").empty();
+                        $("#respuestaServer").html("<iframe width='100%' height='600px' src='data:application/pdf;base64," + objetoDato.documentoPDF + "'></iframe>");
                 }
             })
         }
