@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: linear-gradient(#141e30, #243b55);
+        }
+
+        main {
+            align-items: center;
+            display: flex;
+            height: 100%;
+        }
+
+        .ingreso {
+            margin: 0 auto;
+            width: 400px;
+            padding: 40px;
+            background: rgba(0, 0, 0, .5);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, .3);
+            border-radius: 10px;
+        }
+
+        h2 {
+            margin: 0 0 30px;
+            color: #fff;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px 0;
+            color: #fff;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid #fff;
+            outline: none;
+            background: transparent;
+        }
+
+        label {
+            padding: 10px 0;
+            color: gray;
+            transition: .5s;
+        }
+
+        button {
+            background-color: #fafafa;
+            color: #252525;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 7px;
+            border: none;
+            border-radius: 4px;
+            transition: all 0.6s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="ingreso">
+            <h2>Ingreso</h2>
+            <form action="ingresoAlSistema.php" method="post">
+                <div class="entrada">
+                    <label>Usuario</label>
+                    <input name="login" id="login" required>
+                </div>
+                <div class="entrada">
+                    <label>Contraseña</label>
+                    <input type="password" name="clave" id="clave" required>
+                </div>
+                <button id="ingresar">Ingresar</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

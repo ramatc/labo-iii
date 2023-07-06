@@ -1,4 +1,5 @@
 <?php
+include('./manejoSesion.inc');
 
 $dbname = "boter0xpekexi1ebyzxp";
 $host = "boter0xpekexi1ebyzxp-mysql.services.clever-cloud.com";

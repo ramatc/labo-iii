@@ -1,5 +1,4 @@
 <?php
-
 $dbname = "boter0xpekexi1ebyzxp";
 $host = "boter0xpekexi1ebyzxp-mysql.services.clever-cloud.com";
 $user = "uf7hf1x9lseshxyt";
@@ -9,25 +8,24 @@ try {
     $dsn = "mysql:host=$host;dbname=$dbname";
     $dbh = new PDO($dsn, $user, $password);
 
-    $codArt = $_GET["codArt"];
-
-    $sql = "SELECT archivo FROM zapatillas WHERE codArt = :codArt";
-
+    $sql = "SELECT * FROM usuarios";
     $stmt = $dbh->prepare($sql);
-    $stmt->bindParam(':codArt', $codArt);
-
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
 
-    $fila = $stmt->fetch();
-    $objZapatilla = new stdClass;
-    $objZapatilla->documentoPDF = base64_encode($fila["archivo"]);
-    $salidaJSON = json_encode($objZapatilla, JSON_INVALID_UTF8_SUBSTITUTE);
+    $usuarios = [];
 
-    echo $salidaJSON;
+    while ($fila = $stmt->fetch()) {
+        $objUsuario = new stdClass;
+        $objUsuario->login = $fila["login"];
+        $objUsuario->clave = $fila["clave"];
+        $objUsuario->contador = $fila["contador"];
+
+        array_push($usuarios, $objUsuario);
+    }
+
     $dbh = null;
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
-
 ?>

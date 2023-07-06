@@ -1,12 +1,16 @@
+<?php
+include('./manejoSesion.inc');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 11 - BD Abm</title>
+    <title>Ejercicio 12 - Sesión</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../ej11_bd_abm/style.css">
 </head>
 
 <body>
@@ -17,6 +21,7 @@
         <button id="vaciarDatos">Vaciar datos</button>
         <button id="limpiarFiltros">Limpiar filtros</button>
         <button id="altaRegistro">Alta registro</button>
+        <button id="cerrarSesion">Cerrar sesión</button>
     </header>
 
     <main id="contenedor">
@@ -194,7 +199,6 @@
                 url: "./jsonMarcas.php",
                 success: function (respuestaDelServer, estado) {
                     var objJson = JSON.parse(respuestaDelServer);
-                    alert(respuestaDelServer);
 
                     objJson.marcas.forEach(marca => {
                         var objOpcion = document.createElement("option");
@@ -219,6 +223,10 @@
             document.getElementById('modalModi').className = "ventanaModalApagado";
             document.getElementById('modalAlta').className = "ventanaModalApagado";
             document.getElementById('modalRes').className = "ventanaModalApagado";
+
+            $("#cerrarSesion").click(function () {
+                location.href = "../destruirSesion.php";
+            });
         });
 
         $("#formAlta").keyup(function () {
@@ -274,7 +282,6 @@
                     $("#tabla").empty();
 
                     var objJson = JSON.parse(respuestaDelServer);
-                    alert(respuestaDelServer);
 
                     $("#cantidad").append("Cantidad de zapatillas:" + objJson.cantidad);
 
@@ -311,7 +318,7 @@
                         objTr.appendChild(fecha);
 
                         precio.setAttribute("campo-dato", "precio");
-                        precio.innerHTML = zapatilla.precio;
+                        precio.innerHTML = "$" + zapatilla.precio;
                         objTr.appendChild(precio);
 
                         btnPdf.setAttribute("campo-dato", "pdf");
@@ -514,7 +521,7 @@
             cerrarModalModi();
             cerrarModalAlta();
             contenedorActivo();
-        })
+        });
     </script>
 </body>
 

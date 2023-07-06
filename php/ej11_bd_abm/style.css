@@ -8,6 +8,7 @@ html,
 body {
     width: 100%;
     height: 100%;
+    font-family: sans-serif;
 }
 
 header {
@@ -38,12 +39,13 @@ footer {
 table {
     width: 100%;
     height: 100%;
-    background-color: #7489e5a4;
+    color: white;
+    background: linear-gradient(#141e30, #243b55);
     border-collapse: collapse;
 }
 
 th {
-    background-color: #7489e5;
+    background-color: #25496f;
     padding: 7px;
     text-align: center;
     border-right: 2px solid #252525;
@@ -71,7 +73,6 @@ tbody tr:nth-child(odd) {
 }
 
 header button {
-    width: 100px;
     height: 45px;
 }
 
