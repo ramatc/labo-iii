@@ -43,7 +43,7 @@ echo "<div style='border: 1px solid black'>
     <h3>Contador de sesión: <span style='color: blue'>" . $contadorBd . "</span></h3>
     </div>";
 
-echo "<button onClick=\"location.href='./app'\">Ingresar a la aplicación</button>";
+echo "<button onClick=\"location.href='./app/'\">Ingresar a la aplicación</button>";
 echo "<button onClick=\"location.href='./destruirSesion.php'\">Terminar sesión</button>";
 
 ?>
