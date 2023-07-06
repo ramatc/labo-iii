@@ -9,10 +9,7 @@ $claveBd = "";
 $contadorBd = 0;
 
 foreach ($usuarios as $usuario) {
-    $flag = 0;
-
     if ($usuario->login == $login) {
-        $flag = 1;
         if ($usuario->clave == $clave) {
             $loginBd = $usuario->login;
             $claveBd = $usuario->clave;
@@ -28,6 +25,30 @@ if (!isset($_SESSION['idSesion'])) {
     }
 
     session_start();
+
+    $contadorBd = $contadorBd + 1;
+
+    $dbname = "boter0xpekexi1ebyzxp";
+    $host = "boter0xpekexi1ebyzxp-mysql.services.clever-cloud.com";
+    $user = "uf7hf1x9lseshxyt";
+    $password = "lG2kzZOSuVCwrD0sIntd";
+
+    try {
+        $dsn = "mysql:host=$host;dbname=$dbname";
+        $dbh = new PDO($dsn, $user, $password);
+
+        $sql = "UPDATE usuarios SET contador = :contadorBd WHERE clave = :claveBd";
+        $stmt = $dbh->prepare($sql);
+
+        $stmt->bindParam(":claveBd", $claveBd);
+        $stmt->bindParam(":contadorBd", $contadorBd);
+
+        $stmt->execute();
+
+        $dbh = null;
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
 
     $_SESSION['idSesion'] = session_create_id();
     $_SESSION['login'] = $login;
