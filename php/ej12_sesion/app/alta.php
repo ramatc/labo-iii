@@ -1,6 +1,11 @@
 <?php
 include('./manejoSesion.inc');
 
+if (!isset($_POST['codArtAlta'])) {
+    header('location: ./index.php');
+    exit();
+}
+
 $dbname = "boter0xpekexi1ebyzxp";
 $host = "boter0xpekexi1ebyzxp-mysql.services.clever-cloud.com";
 $user = "uf7hf1x9lseshxyt";

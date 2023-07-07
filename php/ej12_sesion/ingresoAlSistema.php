@@ -18,7 +18,7 @@ foreach ($usuarios as $usuario) {
     }
 }
 
-if (!isset($_SESSION['idSesion'])) {
+// if (!isset($_SESSION['idSesion'])) {
     if (!$login || !$clave || ($login != $loginBd || $clave != $claveBd)) {
         header('location: ./formLogin.html');
         exit();
@@ -53,7 +53,7 @@ if (!isset($_SESSION['idSesion'])) {
     $_SESSION['idSesion'] = session_create_id();
     $_SESSION['login'] = $login;
     $_SESSION['contador'] = $contadorBd;
-}
+// }
 
 echo "<h1>Accesso permitido</h1>";
 echo "<h2>Sus parametros de sesión son los siguientes: </h2>";
