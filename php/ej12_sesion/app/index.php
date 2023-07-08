@@ -199,6 +199,7 @@ include('./manejoSesion.inc');
                 url: "./jsonMarcas.php",
                 success: function (respuestaDelServer, estado) {
                     var objJson = JSON.parse(respuestaDelServer);
+                    alert(respuestaDelServer);
 
                     objJson.marcas.forEach(marca => {
                         var objOpcion = document.createElement("option");
@@ -282,6 +283,7 @@ include('./manejoSesion.inc');
                     $("#tabla").empty();
 
                     var objJson = JSON.parse(respuestaDelServer);
+                    alert(respuestaDelServer);
 
                     $("#cantidad").append("Cantidad de zapatillas:" + objJson.cantidad);
 
