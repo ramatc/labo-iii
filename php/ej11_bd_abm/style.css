@@ -61,7 +61,7 @@ tbody tr:nth-child(odd) {
 }
 
 #orden {
-    font-size: 20px;
+    width: 110px;
     margin: 0 5px;
     height: 45px;
 }
@@ -78,9 +78,12 @@ header button {
 
 header button,
 td button {
-    padding: 7px;
     margin: 4px;
     cursor: pointer;
+}
+
+td button {
+    padding: 7px;
 }
 
 thead {

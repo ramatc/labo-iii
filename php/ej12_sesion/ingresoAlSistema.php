@@ -3,6 +3,16 @@
 include('./conexionBd.inc');
 session_start();
 
+if (!isset($_POST["login"])) {
+    if (!isset($_SESSION['idSesion'])) {
+        header('location: ./formLogin.html');
+        exit();
+    } else {
+        header('location: ./app/index.php');
+        exit();
+    }
+}
+
 $login = $_POST["login"];
 $clave = md5($_POST["clave"]);
 $loginBd = "";
@@ -19,7 +29,7 @@ foreach ($usuarios as $usuario) {
     }
 }
 
-if (!$login || !$clave || ($login != $loginBd || $clave != $claveBd)) {
+if ($login != $loginBd || $clave != $claveBd) {
     session_destroy();
     header('location: ./formLogin.html');
     exit();
