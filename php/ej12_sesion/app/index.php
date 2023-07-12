@@ -30,12 +30,12 @@ include('./manejoSesion.inc');
                 <tr class="head-tr">
                     <th campo-dato="codArt" id="codArt">Cod. Art.</th>
                     <th campo-dato="marca" id="marca">Marca</th>
-                    <th campo-dato="descripcion" id="descripcion">Descripción</th>
+                    <th campo-dato="descripcion" id="descripcion">Desc.</th>
                     <th campo-dato="color" id="color">Color</th>
                     <th campo-dato="fecha" id="fecha">Año</th>
                     <th campo-dato="precio" id="precio">Precio</th>
                     <th campo-dato="pdf" id="pdf">PDF</th>
-                    <th campo-dato="modi" id="modi">Modificacion</th>
+                    <th campo-dato="modi" id="modi">Modi</th>
                     <th campo-dato="baja" id="baja">Baja</th>
                 </tr>
 
@@ -62,12 +62,12 @@ include('./manejoSesion.inc');
                 <tr>
                     <th campo-dato="codArt">Cod. Art.</th>
                     <th campo-dato="marca">Marca</th>
-                    <th campo-dato="descripcion">Descripción</th>
+                    <th campo-dato="descripcion">Desc.</th>
                     <th campo-dato="color">Color</th>
                     <th campo-dato="fecha">Año</th>
                     <th campo-dato="precio">Precio</th>
                     <th campo-dato="pdf" id="pdf">PDF</th>
-                    <th campo-dato="modi" id="modi">Modificacion</th>
+                    <th campo-dato="modi" id="modi">Modi</th>
                     <th campo-dato="baja" id="baja">Baja</th>
                 </tr>
             </tfoot>

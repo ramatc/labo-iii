@@ -14,7 +14,7 @@ body {
 header {
     background-color: #252525;
     height: 10%;
-    padding: 30px;
+    padding: 0 30px;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -219,32 +219,44 @@ label {
     cursor: pointer;
 }
 
+th input {
+    max-width: 130px;
+}
+
+@media (max-width: 500px) {
+    #header h3 {
+        display: none;
+    }
+
+    #header input {
+        width: 60px;
+    }
+}
+
 @media (max-width: 600px) {
-    [campo-dato="precio"] {
+    [campo-dato="marca"] {
         display: none;
     }
 
     [campo-dato="descripcion"] {
-        width: 85vw;
+        display: none;
+    }
+}
+
+@media (max-width: 750px) {
+    [campo-dato="color"] {
+        display: none;
     }
 }
 
 @media (max-width: 900px) {
-    [campo-dato="color"] {
-        display: none;
-    }
-
     [campo-dato="precio"] {
-        width: 60vw;
+        display: none;
     }
 }
 
 @media (max-width: 1200px) {
     [campo-dato="fecha"] {
         display: none;
-    }
-
-    [campo-dato="color"] {
-        width: 35vw;
     }
 }
